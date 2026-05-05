@@ -46,7 +46,7 @@ namespace TP_SanchezVillaverde
             lblUsuario.Text = "Usuario: Sin Conexion";
             iniciarSesionToolStripMenuItem.Enabled = true;
             cerrarSesionToolStripMenuItem.Visible = false;
-            //tsAdmin.Visible = false;
+            tsAdmin.Visible = false;
             tsReportes.Visible = false;
             tsGestion.Visible = false;
             cambiarClaveToolStripMenuItem.Visible = false;
