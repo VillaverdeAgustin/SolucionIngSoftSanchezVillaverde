@@ -101,5 +101,18 @@ namespace TP_SanchezVillaverde
                 this.Close();
             }
         }
+
+        private void iniciarSesionToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            frm.Show();
+            this.Close();
+        }
+
+        private void cambiarClaveToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmModClave frmClave = new frmModClave();
+            frmClave.ShowDialog();
+        }
     }
 }

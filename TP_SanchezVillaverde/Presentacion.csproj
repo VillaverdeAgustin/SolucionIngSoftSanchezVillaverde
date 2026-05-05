@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmModClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModClave.Designer.cs">
+      <DependentUpon>frmModClave.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModClave.resx">
+      <DependentUpon>frmModClave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>

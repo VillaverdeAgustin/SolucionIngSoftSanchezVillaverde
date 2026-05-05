@@ -20,3 +20,4 @@ C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVill
 C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.exe
 C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.pdb
 C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmLogin.resources
+C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmModClave.resources
