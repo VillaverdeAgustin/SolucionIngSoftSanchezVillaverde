@@ -1,5 +1,6 @@
 ﻿using Entidad_BE;
 using Negocio_BLL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -496,6 +497,7 @@ namespace TP_SanchezVillaverde
                             usuarioBLL.CrearUsuario(us);
                             ActualizarDGV();
                             LlenarMensaje($"El usuario -- {us.user} -- fue creado exitosamente");
+                            gestion.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Crea Usuario " + us.user);
                         }
                         catch (Exception ex)
                         {
@@ -512,6 +514,7 @@ namespace TP_SanchezVillaverde
                         usuarioBLL.ActualizarUsuario(us);
                         ActualizarDGV();
                         LlenarMensaje($"Usuario -- {us.user} -- actualizado correctamente");
+                        gestion.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Modifica Usuario " + us.user);
                     }
                     catch (Exception ex)
                     {
@@ -550,6 +553,7 @@ namespace TP_SanchezVillaverde
                     usuarioBLL.EliminarUs(us);
                     ActualizarDGV();
                     LlenarMensaje($"Baja de usuario -- {us.user} -- exitosa");
+                    gestion.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Elimina Usuario " + us.user);
                 }
             }
             catch (Exception ex)
@@ -570,6 +574,7 @@ namespace TP_SanchezVillaverde
                     aux.pass = usuarioBLL.GenerarPass(aux.ape, aux.dni.ToString());
                     usuarioBLL.DesbloquearUS(aux);
                     LlenarMensaje("Usuario desbloqueado exitosamente");
+                    gestion.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Desbloquea Usuario " + aux.user);
                     ActualizarDGV();
                 }
             }
