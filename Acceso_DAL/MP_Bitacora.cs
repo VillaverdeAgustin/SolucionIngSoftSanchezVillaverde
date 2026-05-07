@@ -16,9 +16,7 @@ namespace Acceso_DAL
         public List<EventoBE> ListarEventos()
         {
             List<EventoBE> eventos = new List<EventoBE>();
-            SqlParameter[] param = new SqlParameter[1];
-            param[0] = new SqlParameter("@tabla", "Bitacora");
-            DataTable dt = conexDB.LeerTabla("SP_ExtTabla", param);
+            DataTable dt = conexDB.LeerTabla("SP_ExtBitacora", null);
             foreach (DataRow dr in dt.Rows)
             {
                 EventoBE ev = new EventoBE();

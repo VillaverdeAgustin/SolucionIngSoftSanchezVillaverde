@@ -76,7 +76,7 @@ namespace TP_SanchezVillaverde
 
         private void gestionDeUsuariosToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Gestion Usuarios Open");
+            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.GestionUsuariosAbierta.ToString());
             OpenForm(tsAdmin, new frmUsuario());
         }
 
@@ -85,7 +85,7 @@ namespace TP_SanchezVillaverde
             if (MessageBox.Show("¿Esta seguro que desea cerrar la aplicacion?", "Atencion",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "App Close");
+                negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.AppClose.ToString());
                 SessionManager.GetInstance.Logout();
                 Application.Exit();
             }
@@ -96,7 +96,7 @@ namespace TP_SanchezVillaverde
             if (MessageBox.Show("¿Esta seguro que desea cerrar la sesion?", "Atencion",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Logout");
+                negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.Logout.ToString());
                 UsuarioBLL usuario = new UsuarioBLL();
                 usuario.Logout();
 
@@ -121,7 +121,7 @@ namespace TP_SanchezVillaverde
 
         private void bitacoraToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, "Bitacora Open");
+            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BitacoraAbierta.ToString());
             OpenForm(tsAdmin, new frmBitacora());
         }
     }

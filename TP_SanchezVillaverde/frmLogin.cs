@@ -38,7 +38,7 @@ namespace TP_SanchezVillaverde
             if (MessageBox.Show("¿Esta seguro que desea cerrar la aplicacion?", "Atencion",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                negocio.RegistrarBitacora("null", "App Close");
+                negocio.RegistrarBitacora("null", TipoAccion.AppClose.ToString());
                 Application.Exit();
             }
             else txtUsuario.Enfocar();
@@ -63,7 +63,7 @@ namespace TP_SanchezVillaverde
                     int authOK = usuario.Login(user);
                     if (authOK == 1)
                     {
-                        negocio.RegistrarBitacora(user.user, "Login OK");
+                        negocio.RegistrarBitacora(user.user, TipoAccion.Login.ToString());
                         frmMenu frm = new frmMenu();
                         frm.Show();
                         this.Hide();
@@ -76,28 +76,28 @@ namespace TP_SanchezVillaverde
                         switch (authOK)
                         {
                             case 0:
-                                negocio.RegistrarBitacora(user.user, "Login Inexistente");
+                                negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail.ToString());
                                 lblError.Text = "El usuario ingresado no existe";
                                 break;
                             case 2:
-                                negocio.RegistrarBitacora(user.user, "Login Bloqueado");
+                                negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail.ToString());
                                 lblError.Text = "El usuario se encuentra bloqueado. Contacte al administrador";
                                 break;
                             case 3:
-                                negocio.RegistrarBitacora(user.user, "Login Fail");
+                                negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail.ToString());
                                 lblError.Text = "La contraseña ingresada es incorrecta";
                                 break;
                             case 4:
-                                negocio.RegistrarBitacora(user.user, "Login Inactivo");
+                                negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail.ToString());
                                 MessageBox.Show($"El usuario -->{user.user}<-- no esta disponible. Contacte al administrador.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 break;
                             case 5:
-                                negocio.RegistrarBitacora(user.user, "Bloqueo Usuario");
+                                negocio.RegistrarBitacora(user.user, TipoAccion.BloqueoUsuario.ToString());
                                 MessageBox.Show("Cantidad de intentos superado, se bloqueo el usuario. Cerrando la aplicacion.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 Application.Exit();
                                 break;
                             case 6:
-                                negocio.RegistrarBitacora(user.user, "Relogin");
+                                negocio.RegistrarBitacora(user.user, TipoAccion.Login.ToString());
                                 MessageBox.Show($"El usuario -->{user.user}<-- ya tiene la sesion iniciada.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 frmMenu frm = new frmMenu();
                                 frm.Show();
@@ -108,7 +108,7 @@ namespace TP_SanchezVillaverde
                             case 7:
                                 if (MessageBox.Show("Ya existe una sesion iniciada, desea finalizarla?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    negocio.RegistrarBitacora(user.user, "Logout");
+                                    negocio.RegistrarBitacora(user.user, TipoAccion.Logout.ToString());
                                     usuario.Logout();
                                     MessageBox.Show("Sesion cerrada correctamente. Intente nuevamente con su usuario", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
@@ -129,7 +129,7 @@ namespace TP_SanchezVillaverde
 
         private void lblSinConexion_Click(object sender, EventArgs e)
         {
-            negocio.RegistrarBitacora("null", "No Session");
+            negocio.RegistrarBitacora("null", TipoAccion.NoSesion.ToString());
             usuario.Logout();
             frmMenu frm = new frmMenu();
             frm.Show();
