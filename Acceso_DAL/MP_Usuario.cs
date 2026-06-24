@@ -39,13 +39,13 @@ namespace Acceso_DAL
             return usuarios;
         }
 
-        public int Login(UsuarioBE us)
+        public LoginResult Login(UsuarioBE us)
         {
             SqlParameter[] parametros = new SqlParameter[2];
             parametros[0] = new SqlParameter("@user", us.user);
             parametros[1] = new SqlParameter("@pass", us.pass);
 
-            return conexDB.Consulta("SP_Login", parametros);
+            return (LoginResult)conexDB.Consulta("SP_Login", parametros);
         }
 
         public void ActualizarBloqueo(UsuarioBE us, bool bloq)

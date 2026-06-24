@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventoBE.cs" />
+    <Compile Include="LoginResult.cs" />
     <Compile Include="TipoAccion.cs" />
     <Compile Include="UsuarioBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
