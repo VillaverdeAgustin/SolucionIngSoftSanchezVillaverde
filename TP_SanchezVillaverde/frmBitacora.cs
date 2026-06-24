@@ -18,11 +18,11 @@ namespace TP_SanchezVillaverde
             InitializeComponent();
         }
 
-        NegocioBLL negocio = new NegocioBLL();
+        BitacoraBLL bitacora = new BitacoraBLL();
 
         private void frmBitacora_Load(object sender, EventArgs e)
         {
-            dgvBitacora.DataSource = negocio.ListarBitacora();
+            dgvBitacora.DataSource = bitacora.ListarBitacora();
             dgvBitacora.Columns[0].HeaderText = "ID Registro";
             dgvBitacora.Columns[1].HeaderText = "Usuario";
             dgvBitacora.Columns[2].HeaderText = "Accion";

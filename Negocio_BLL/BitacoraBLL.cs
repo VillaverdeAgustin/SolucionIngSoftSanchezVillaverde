@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace Negocio_BLL
 {
-    public class NegocioBLL
+    public class BitacoraBLL
     {
-        private MP_Usuario mpUsuario = new MP_Usuario();
         private MP_Bitacora mpBitacora = new MP_Bitacora();
 
         public List<EventoBE> ListarBitacora()
@@ -19,19 +18,14 @@ namespace Negocio_BLL
             return mpBitacora.ListarEventos();
         }
 
-        public List<UsuarioBE> ListarUsuarios()
-        {
-            return mpUsuario.ListarUsuarios();
-        }
-
         public void RegistrarBitacora(string us, TipoAccion acc)
         {
-            mpBitacora.RegistrarEvento(Bitacora.getInstance().RegistrarEvento(us,acc.ToString()));
+            mpBitacora.RegistrarEvento(Bitacora.RegistrarEvento(us, acc.ToString()));
         }
 
         public void RegistrarBitacora(string us, string acc)
         {
-            mpBitacora.RegistrarEvento(Bitacora.getInstance().RegistrarEvento(us, acc));
+            mpBitacora.RegistrarEvento(Bitacora.RegistrarEvento(us, acc));
         }
     }
 }

@@ -15,7 +15,8 @@ namespace TP_SanchezVillaverde
 
         public static ToolStripMenuItem opcActivo = null;
         public static Form formActivo = null;
-        NegocioBLL negocio = new NegocioBLL();
+        UsuarioBLL usuario = new UsuarioBLL();
+        BitacoraBLL bitacora = new BitacoraBLL();
 
         private void frmMenu_Load(object sender, System.EventArgs e)
         {
@@ -76,7 +77,7 @@ namespace TP_SanchezVillaverde
 
         private void gestionDeUsuariosToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.GestionUsuariosAbierta.ToString());
+            bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.GestionUsuariosAbierta.ToString());
             OpenForm(tsAdmin, new frmUsuario());
         }
 
@@ -85,7 +86,7 @@ namespace TP_SanchezVillaverde
             if (MessageBox.Show("¿Esta seguro que desea cerrar la aplicacion?", "Atencion",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.AppClose.ToString());
+                bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.AppClose.ToString());
                 SessionManager.GetInstance.Logout();
                 Application.Exit();
             }
@@ -96,7 +97,7 @@ namespace TP_SanchezVillaverde
             if (MessageBox.Show("¿Esta seguro que desea cerrar la sesion?", "Atencion",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.Logout.ToString());
+                bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.Logout.ToString());
                 UsuarioBLL usuario = new UsuarioBLL();
                 usuario.Logout();
 
@@ -121,7 +122,7 @@ namespace TP_SanchezVillaverde
 
         private void bitacoraToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BitacoraAbierta.ToString());
+            bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BitacoraAbierta.ToString());
             OpenForm(tsAdmin, new frmBitacora());
         }
     }

@@ -15,6 +15,11 @@ namespace Negocio_BLL
         private UsuarioBE usuario;
         private MP_Usuario mpUsuario = new MP_Usuario();
 
+        public List<UsuarioBE> ListarUsuarios()
+        {
+            return mpUsuario.ListarUsuarios();
+        }
+
         public LoginResult Login(UsuarioBE us)
         {
             LoginResult AuthOK;

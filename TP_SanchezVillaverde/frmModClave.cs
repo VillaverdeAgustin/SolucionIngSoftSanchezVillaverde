@@ -23,7 +23,7 @@ namespace TP_SanchezVillaverde
         }
 
         UsuarioBLL usuario = new UsuarioBLL();
-        NegocioBLL negocio = new NegocioBLL();
+        BitacoraBLL bitacora = new BitacoraBLL();
         UsuarioBE us = new UsuarioBE();
         int verif = 0;
         string patron = "^[A-Za-z0-9]+$";
@@ -107,7 +107,7 @@ namespace TP_SanchezVillaverde
                         txtActual.Clear();
                         txtActual.Focus();
                         lblError.Text = $"Contraseña incorrecta, quedan {usuario.maxIntentos.ToString()} intentos";
-                        negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.LoginFail);
+                        bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.LoginFail);
                         break;
                     case 1:
                         btnLogin.Visible = false;
@@ -123,7 +123,7 @@ namespace TP_SanchezVillaverde
                         break;
                     case 2:
                         MessageBox.Show("Cantidad de intentos superados, usuario bloqueado. Contacte al administrador", "Usuario Bloqueado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BloqueoUsuario);
+                        bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BloqueoUsuario);
                         usuario.Logout();
                         Application.Exit();
                         break;
@@ -155,7 +155,7 @@ namespace TP_SanchezVillaverde
                         else
                         {
                             MessageBox.Show("Contraseña cambiada correctamente", "Nueva Contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            negocio.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.CambioClave);
+                            bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.CambioClave);
                             this.Close();
                         }
                     }
