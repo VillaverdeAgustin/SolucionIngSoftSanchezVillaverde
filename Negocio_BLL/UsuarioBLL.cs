@@ -15,14 +15,14 @@ namespace Negocio_BLL
         private UsuarioBE usuario;
         private MP_Usuario mpUsuario = new MP_Usuario();
 
-        public int Login(UsuarioBE us)
+        public LoginResult Login(UsuarioBE us)
         {
-            int AuthOK;
+            LoginResult AuthOK;
             us.pass = Encriptador.EncriptarIrrev(us.pass);
             if (SessionManager.GetInstance.logged == false)
             {
                 AuthOK = mpUsuario.Login(us);
-                if (AuthOK == 1)
+                if (AuthOK == LoginResult.LoginOK)
                 {
                     SessionManager.GetInstance.Login(us);
                     maxIntentos = 3;
@@ -33,19 +33,19 @@ namespace Negocio_BLL
                 usuario = SessionManager.GetInstance.UsuarioActual();
                 if ((usuario.user == us.user) && (usuario.pass == us.pass))
                 {
-                    AuthOK = 6;
+                    AuthOK = LoginResult.SesionIniciada;
                     maxIntentos = 3;
                 }
-                else { AuthOK = 7; }
+                else { AuthOK = LoginResult.ExisteSesion; }
             }
-            if ((AuthOK != 1) || (AuthOK != 7)) { maxIntentos--; }
+            if ((AuthOK != LoginResult.LoginOK) || (AuthOK != LoginResult.ExisteSesion)) { maxIntentos--; }
             if (maxIntentos == 0)
             {
                 usuario = new UsuarioBE();
                 usuario.user = us.user;
                 usuario.pass = " ";
                 mpUsuario.ActualizarBloqueo(usuario, true);
-                AuthOK = 5;
+                AuthOK = LoginResult.FinIntentos;
             }
             return AuthOK;
         }

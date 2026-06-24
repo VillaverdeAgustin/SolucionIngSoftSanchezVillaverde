@@ -60,8 +60,8 @@ namespace TP_SanchezVillaverde
                     user.user = txtUsuario.texto;
                     user.pass = txtContra.texto;
 
-                    int authOK = usuario.Login(user);
-                    if (authOK == 1)
+                    LoginResult authOK = usuario.Login(user);
+                    if (authOK == LoginResult.LoginOK)
                     {
                         negocio.RegistrarBitacora(user.user, TipoAccion.Login);
                         frmMenu frm = new frmMenu();
@@ -75,28 +75,28 @@ namespace TP_SanchezVillaverde
                         //Mensaje de label de Error
                         switch (authOK)
                         {
-                            case 0:
+                            case LoginResult.UserInexistente:
                                 negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail);
                                 lblError.Text = "El usuario ingresado no existe";
                                 break;
-                            case 2:
+                            case LoginResult.UserBloqueado:
                                 negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail);
                                 lblError.Text = "El usuario se encuentra bloqueado. Contacte al administrador";
                                 break;
-                            case 3:
+                            case LoginResult.PassIncorrecta:
                                 negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail);
                                 lblError.Text = "La contraseña ingresada es incorrecta";
                                 break;
-                            case 4:
+                            case LoginResult.UserInactivo:
                                 negocio.RegistrarBitacora(user.user, TipoAccion.LoginFail);
                                 MessageBox.Show($"El usuario -->{user.user}<-- no esta disponible. Contacte al administrador.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 break;
-                            case 5:
+                            case LoginResult.FinIntentos:
                                 negocio.RegistrarBitacora(user.user, TipoAccion.BloqueoUsuario);
                                 MessageBox.Show("Cantidad de intentos superado, se bloqueo el usuario. Cerrando la aplicacion.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 Application.Exit();
                                 break;
-                            case 6:
+                            case LoginResult.SesionIniciada:
                                 negocio.RegistrarBitacora(user.user, TipoAccion.Login);
                                 MessageBox.Show($"El usuario -->{user.user}<-- ya tiene la sesion iniciada.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 frmMenu frm = new frmMenu();
@@ -105,7 +105,7 @@ namespace TP_SanchezVillaverde
 
                                 frm.FormClosing += frm_closing;
                                 break;
-                            case 7:
+                            case LoginResult.ExisteSesion:
                                 if (MessageBox.Show("Ya existe una sesion iniciada, desea finalizarla?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     negocio.RegistrarBitacora(user.user, TipoAccion.Logout);
