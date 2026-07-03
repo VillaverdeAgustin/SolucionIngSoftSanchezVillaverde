@@ -1,14 +1,8 @@
-﻿using Entidad_BE;
-using Negocio_BLL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidad_BE;
+using Negocio_BLL;
 
 namespace TP_SanchezVillaverde
 {
@@ -63,7 +57,7 @@ namespace TP_SanchezVillaverde
                     LoginResult authOK = usuario.Login(user);
                     if (authOK == LoginResult.LoginOK)
                     {
-                        bitacora.RegistrarBitacora(user.user, TipoAccion.Login);
+                        //bitacora.RegistrarBitacora(user.user, TipoAccion.Login);
                         frmMenu frm = new frmMenu();
                         frm.Show();
                         this.Hide();

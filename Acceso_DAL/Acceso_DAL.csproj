@@ -44,6 +44,8 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="MP_Bitacora.cs" />
     <Compile Include="MP_Usuario.cs" />
+    <Compile Include="MP_VerificadorIntegridad.cs" />
+    <Compile Include="PerfilDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

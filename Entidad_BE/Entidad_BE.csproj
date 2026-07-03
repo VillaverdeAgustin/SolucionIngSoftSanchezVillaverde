@@ -42,8 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventoBE.cs" />
+    <Compile Include="Familia.cs" />
+    <Compile Include="IVerificable.cs" />
     <Compile Include="LoginResult.cs" />
+    <Compile Include="Permiso.cs" />
+    <Compile Include="PermisoSimple.cs" />
     <Compile Include="TipoAccion.cs" />
+    <Compile Include="TipoPermiso.cs" />
     <Compile Include="UsuarioBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

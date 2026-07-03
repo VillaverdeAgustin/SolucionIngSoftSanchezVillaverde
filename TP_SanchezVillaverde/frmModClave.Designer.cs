@@ -43,20 +43,20 @@
             // 
             // txtActual
             // 
-            this.txtActual.Location = new System.Drawing.Point(31, 110);
-            this.txtActual.Margin = new System.Windows.Forms.Padding(4);
+            this.txtActual.Location = new System.Drawing.Point(35, 138);
+            this.txtActual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtActual.Name = "txtActual";
-            this.txtActual.Size = new System.Drawing.Size(251, 22);
+            this.txtActual.Size = new System.Drawing.Size(282, 26);
             this.txtActual.TabIndex = 0;
             this.txtActual.UseSystemPasswordChar = true;
             this.txtActual.TextChanged += new System.EventHandler(this.txtActual_TextChanged);
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(31, 206);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClave.Location = new System.Drawing.Point(35, 258);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(251, 22);
+            this.txtClave.Size = new System.Drawing.Size(282, 26);
             this.txtClave.TabIndex = 1;
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.Visible = false;
@@ -64,10 +64,10 @@
             // 
             // txtClaveRep
             // 
-            this.txtClaveRep.Location = new System.Drawing.Point(31, 268);
-            this.txtClaveRep.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClaveRep.Location = new System.Drawing.Point(35, 335);
+            this.txtClaveRep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtClaveRep.Name = "txtClaveRep";
-            this.txtClaveRep.Size = new System.Drawing.Size(251, 22);
+            this.txtClaveRep.Size = new System.Drawing.Size(282, 26);
             this.txtClaveRep.TabIndex = 2;
             this.txtClaveRep.UseSystemPasswordChar = true;
             this.txtClaveRep.Visible = false;
@@ -77,10 +77,10 @@
             // 
             this.lblActual.AutoSize = true;
             this.lblActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblActual.Location = new System.Drawing.Point(88, 96);
+            this.lblActual.Location = new System.Drawing.Point(99, 120);
             this.lblActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblActual.Name = "lblActual";
-            this.lblActual.Size = new System.Drawing.Size(111, 13);
+            this.lblActual.Size = new System.Drawing.Size(164, 20);
             this.lblActual.TabIndex = 3;
             this.lblActual.Text = "Contraseña Actual";
             this.lblActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,9 +89,9 @@
             // 
             this.lblNuevo.AutoSize = true;
             this.lblNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblNuevo.Location = new System.Drawing.Point(84, 189);
+            this.lblNuevo.Location = new System.Drawing.Point(94, 236);
             this.lblNuevo.Name = "lblNuevo";
-            this.lblNuevo.Size = new System.Drawing.Size(112, 13);
+            this.lblNuevo.Size = new System.Drawing.Size(163, 20);
             this.lblNuevo.TabIndex = 4;
             this.lblNuevo.Text = "Nueva Contraseña";
             this.lblNuevo.Visible = false;
@@ -100,9 +100,9 @@
             // 
             this.lblRep.AutoSize = true;
             this.lblRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblRep.Location = new System.Drawing.Point(82, 251);
+            this.lblRep.Location = new System.Drawing.Point(92, 314);
             this.lblRep.Name = "lblRep";
-            this.lblRep.Size = new System.Drawing.Size(116, 13);
+            this.lblRep.Size = new System.Drawing.Size(172, 20);
             this.lblRep.TabIndex = 5;
             this.lblRep.Text = "Repetir Contraseña";
             this.lblRep.Visible = false;
@@ -111,10 +111,10 @@
             // 
             this.btnLogin.Enabled = false;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.Location = new System.Drawing.Point(101, 138);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(114, 172);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(100, 28);
+            this.btnLogin.Size = new System.Drawing.Size(112, 35);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Confirmar";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -123,10 +123,10 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnAceptar.Location = new System.Drawing.Point(99, 363);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Location = new System.Drawing.Point(111, 454);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(100, 39);
+            this.btnAceptar.Size = new System.Drawing.Size(112, 49);
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -136,10 +136,10 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(99, 410);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(111, 512);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 39);
+            this.btnCancel.Size = new System.Drawing.Size(112, 49);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -148,10 +148,10 @@
             // lblInstrucciones
             // 
             this.lblInstrucciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstrucciones.Location = new System.Drawing.Point(19, 11);
+            this.lblInstrucciones.Location = new System.Drawing.Point(21, 14);
             this.lblInstrucciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInstrucciones.Name = "lblInstrucciones";
-            this.lblInstrucciones.Size = new System.Drawing.Size(275, 57);
+            this.lblInstrucciones.Size = new System.Drawing.Size(309, 71);
             this.lblInstrucciones.TabIndex = 9;
             this.lblInstrucciones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -159,17 +159,18 @@
             // 
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(12, 309);
+            this.lblError.Location = new System.Drawing.Point(14, 386);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(288, 50);
+            this.lblError.Size = new System.Drawing.Size(324, 62);
             this.lblError.TabIndex = 10;
+            this.lblError.Click += new System.EventHandler(this.lblError_Click);
             // 
             // frmModClave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 464);
+            this.ClientSize = new System.Drawing.Size(350, 580);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblInstrucciones);
             this.Controls.Add(this.btnCancel);
@@ -182,6 +183,7 @@
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtActual);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmModClave";

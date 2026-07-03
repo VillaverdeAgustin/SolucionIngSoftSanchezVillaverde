@@ -1,13 +1,15 @@
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Negocio_BLL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Negocio_BLL.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Acceso_DAL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Entidad_BE.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Servicios.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Acceso_DAL.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Entidad_BE.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\bin\Debug\Servicios.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\obj\Debug\Negocio_BLL.csproj.AssemblyReference.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\obj\Debug\Negocio_BLL.csproj.CoreCompileInputs.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\obj\Debug\Negocio_.B5ACE76B.Up2Date
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\obj\Debug\Negocio_BLL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Negocio_BLL\obj\Debug\Negocio_BLL.pdb
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_BLL.csproj.AssemblyReference.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_BLL.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_BLL.csproj.AssemblyReference.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_BLL.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Negocio_BLL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Negocio_BLL.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Acceso_DAL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Entidad_BE.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Servicios.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Acceso_DAL.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Entidad_BE.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\bin\Debug\Servicios.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_.B5ACE76B.Up2Date
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_BLL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Negocio_BLL\obj\Debug\Negocio_BLL.pdb

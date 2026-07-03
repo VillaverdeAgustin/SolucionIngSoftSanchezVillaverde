@@ -1,11 +1,13 @@
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\bin\Debug\Acceso_DAL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\bin\Debug\Acceso_DAL.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\bin\Debug\Entidad_BE.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\bin\Debug\Servicios.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\bin\Debug\Entidad_BE.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\bin\Debug\Servicios.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.AssemblyReference.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.CoreCompileInputs.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.Up2Date
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\obj\Debug\Acceso_DAL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Acceso_DAL\obj\Debug\Acceso_DAL.pdb
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.AssemblyReference.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.AssemblyReference.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\bin\Debug\Acceso_DAL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\bin\Debug\Acceso_DAL.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\bin\Debug\Entidad_BE.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\bin\Debug\Servicios.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\bin\Debug\Entidad_BE.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\bin\Debug\Servicios.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.csproj.Up2Date
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Acceso_DAL\obj\Debug\Acceso_DAL.pdb

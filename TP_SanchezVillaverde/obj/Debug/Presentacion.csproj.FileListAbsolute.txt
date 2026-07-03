@@ -1,24 +1,35 @@
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmMenu.resources
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmUsuario.resources
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.Properties.Resources.resources
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\ProyectoCampo_JuanFer.ucAlfaNum.resources
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.GenerateResource.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\TP_SanchezVillaverde.exe.config
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\TP_SanchezVillaverde.exe
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\TP_SanchezVillaverde.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Entidad_BE.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Negocio_BLL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Servicios.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Acceso_DAL.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Entidad_BE.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Negocio_BLL.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Servicios.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\bin\Debug\Acceso_DAL.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\Presenta.BC77CD05.Up2Date
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.exe
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmLogin.resources
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmModClave.resources
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmBitacora.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmBitacora.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmLogin.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmMenu.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmModClave.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmUsuario.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.Properties.Resources.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\ProyectoCampo_JuanFer.ucAlfaNum.resources
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmBitacora.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmLogin.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmMenu.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmModClave.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.frmUsuario.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.Properties.Resources.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\ProyectoCampo_JuanFer.ucAlfaNum.resources
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\TP_SanchezVillaverde.exe.config
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\TP_SanchezVillaverde.exe
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\TP_SanchezVillaverde.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Entidad_BE.dll
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Negocio_BLL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Servicios.dll
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Acceso_DAL.dll
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Entidad_BE.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Negocio_BLL.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Servicios.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\bin\Debug\Acceso_DAL.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\Presenta.BC77CD05.Up2Date
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.exe
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\TP_SanchezVillaverde\obj\Debug\TP_SanchezVillaverde.exe.config

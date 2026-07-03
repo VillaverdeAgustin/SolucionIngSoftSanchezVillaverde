@@ -125,5 +125,16 @@ namespace TP_SanchezVillaverde
             bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BitacoraAbierta.ToString());
             OpenForm(tsAdmin, new frmBitacora());
         }
+
+        private void perfilesToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmGestionPerfiles frmperfil = new frmGestionPerfiles();
+            frmperfil.ShowDialog();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

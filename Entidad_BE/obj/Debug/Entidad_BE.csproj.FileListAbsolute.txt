@@ -1,6 +1,12 @@
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Entidad_BE\bin\Debug\Entidad_BE.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Entidad_BE\bin\Debug\Entidad_BE.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Entidad_BE\obj\Debug\Entidad_BE.csproj.AssemblyReference.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Entidad_BE\obj\Debug\Entidad_BE.csproj.CoreCompileInputs.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Entidad_BE\obj\Debug\Entidad_BE.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Entidad_BE\obj\Debug\Entidad_BE.pdb
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Entidad_BE\bin\Debug\Entidad_BE.dll
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Entidad_BE\bin\Debug\Entidad_BE.pdb
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.csproj.AssemblyReference.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.csproj.CoreCompileInputs.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.dll
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Entidad_BE\bin\Debug\Entidad_BE.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Entidad_BE\bin\Debug\Entidad_BE.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.csproj.AssemblyReference.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Entidad_BE\obj\Debug\Entidad_BE.pdb

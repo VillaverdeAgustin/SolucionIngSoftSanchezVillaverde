@@ -11,7 +11,7 @@ namespace Acceso_DAL
     public class AccesoDatos
     {
         private SqlConnection _conexion;
-        private readonly string cadenaSQL = @"Data Source=KAINMPC;Initial Catalog=FerreDB;Integrated Security=True";
+        private readonly string cadenaSQL = @"Data Source=LEGIONARY\SQLEXPRESS;Initial Catalog=FerreDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
         public SqlConnection conexion { get => _conexion; }
 

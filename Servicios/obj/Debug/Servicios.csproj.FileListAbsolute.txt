@@ -1,9 +1,11 @@
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\bin\Debug\Servicios.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\bin\Debug\Servicios.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\bin\Debug\Entidad_BE.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\bin\Debug\Entidad_BE.pdb
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\obj\Debug\Servicios.csproj.Up2Date
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\obj\Debug\Servicios.dll
-C:\Users\Sanch\source\repos\kainheinlein\IS-TP_Sanchez-Villaverde\Servicios\obj\Debug\Servicios.pdb
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\aguss\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2026\TRABAJO DE CAMPO\Nueva carpeta\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\bin\Debug\Servicios.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\bin\Debug\Servicios.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\bin\Debug\Entidad_BE.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\bin\Debug\Entidad_BE.pdb
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\obj\Debug\Servicios.csproj.Up2Date
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\obj\Debug\Servicios.dll
+C:\Users\aguss\Downloads\Nueva carpeta\Servicios\obj\Debug\Servicios.pdb

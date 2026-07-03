@@ -1,8 +1,4 @@
-﻿using ProyectoCampo_JuanFer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace TP_SanchezVillaverde

@@ -3,13 +3,8 @@ using Negocio_BLL;
 using Servicios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TP_SanchezVillaverde
@@ -24,8 +19,9 @@ namespace TP_SanchezVillaverde
         UsuarioBE auxUsuario;
         BitacoraBLL bitacora = new BitacoraBLL();
         UsuarioBLL usuarioBLL = new UsuarioBLL();
+        PerfilBLL perfilBLL = new PerfilBLL();
         int varMod = 0; //Indica si la modificacion esta activa
-        List<string> roles = new List<string>() { "Cajero", "Vendedor", "Administrador" };
+        List<string> roles = new List<string>();
 
         #region Funciones
 
@@ -382,7 +378,24 @@ namespace TP_SanchezVillaverde
             try
             {
                 ConfigDGV(usuarioBLL.ListarUsuarios());
-                cmbRol.DataSource = roles;
+
+                // Cargar roles dinámicamente desde el sistema de permisos
+                try
+                {
+                    List<Permiso> permisosRol = perfilBLL.ListaPermisos("Rol");
+                    roles.Clear();
+                    foreach (var permiso in permisosRol)
+                    {
+                        roles.Add(permiso.Nombre);
+                    }
+                }
+                catch
+                {
+                    // Si hay error al cargar desde permisos, usar valores por defecto
+                    roles = new List<string>() { "Cajero", "Vendedor", "Administrador" };
+                }
+
+                cmbRol.DataSource = new BindingSource(roles, null);
                 ConfigDefaultForm();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -579,6 +592,11 @@ namespace TP_SanchezVillaverde
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error de comunicacion con la Base de datos. Contacte al Administrador: " + ex.Message); }
+        }
+
+        private void pUsuario_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
