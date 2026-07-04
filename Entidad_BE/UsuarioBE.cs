@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidad_BE
 {
-    public class UsuarioBE
+    public class UsuarioBE : IVerificable
     {
         private int _cod;
 
@@ -104,6 +104,16 @@ namespace Entidad_BE
             set { _bloq = value; }
         }
 
+        private string _dvh;
+
+        public string dvh
+        {
+            get { return _dvh; }
+            set { _dvh = value; }
+        }
+
+        public string digito => _dvh;
+
         public UsuarioBE() { }
 
         public UsuarioBE CrearUsuario(string[] datos)
@@ -120,7 +130,25 @@ namespace Entidad_BE
             this.email = datos[9];
             this.estado = Convert.ToBoolean(datos[10]);
             this.bloq = Convert.ToBoolean(datos[11]);
+            this.dvh = datos[12];
             return this;
+        }
+
+        public string ObtenerCamposDV()
+        {
+            return string.Join("|",
+                cod,
+                dni,
+                nomb,
+                ape,
+                user,
+                rol,
+                pass,
+                dir,
+                tel,
+                email,
+                estado,
+                bloq);
         }
     }
 }

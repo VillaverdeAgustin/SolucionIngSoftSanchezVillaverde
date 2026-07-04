@@ -43,7 +43,7 @@ namespace TP_SanchezVillaverde
         private void CargarArbol()
         {
             treeView1.Nodes.Clear();
-            List<Permiso> PermisoRaiz = permisoBLL.ListaPermisosEnArbol();
+            List<Permiso> PermisoRaiz = permisoBLL.ListaPermisosRaiz();
             foreach (Permiso Pe in PermisoRaiz)
             {
                 TreeNode tn = new TreeNode(Pe.getPermisoNombre());
@@ -118,7 +118,7 @@ namespace TP_SanchezVillaverde
                     {
                         if (familiapermisos.Contains(pnombre))
                         {
-                            throw new Exception($"Permiso '{pnombre}' ya está asignado a '{fam}'");
+                            throw new Exception($"Permiso '{pnombre}' ya estï¿½ asignado a '{fam}'");
                         }
                     }
                 }
@@ -216,7 +216,7 @@ namespace TP_SanchezVillaverde
                     {
                         if (familiapermisos.Contains(pnombre))
                         {
-                            throw new Exception($"Permiso '{pnombre}' ya está asignado a '{fam}'");
+                            throw new Exception($"Permiso '{pnombre}' ya estï¿½ asignado a '{fam}'");
                         }
                     }
                 }
@@ -321,7 +321,7 @@ namespace TP_SanchezVillaverde
                     return true;
                 }
 
-                // Si el hijo es una familia, llamar recursivamente a la función
+                // Si el hijo es una familia, llamar recursivamente a la funciï¿½n
                 if (hijo is Familia)
                 {
                     if (FamiliaContenida(familiaAEliminar, (Familia)hijo))
@@ -345,13 +345,13 @@ namespace TP_SanchezVillaverde
                     {
                         if (FamiliaContenida(comboFamilias.SelectedItem.ToString(), familia))
                         {
-                            throw new Exception("La familia está en uso por otra familia");
+                            throw new Exception("La familia estï¿½ en uso por otra familia");
                         }
                     }
 
                     if (permisoBLL.PerfilEnUso(comboFamilias.SelectedItem.ToString()))
                     {
-                        throw new Exception($"El perfil está en uso: {comboFamilias.SelectedItem}");
+                        throw new Exception($"El perfil estï¿½ en uso: {comboFamilias.SelectedItem}");
                     }
 
                     permisoBLL.EliminarFamilia(new Familia(comboFamilias.SelectedItem.ToString(), false));
@@ -392,8 +392,8 @@ namespace TP_SanchezVillaverde
 
         public void ActualizarIdioma()
         {
-            // Placeholder para actualización de idiomas
-            // Implementar según tu sistema de traducción
+            // Placeholder para actualizaciï¿½n de idiomas
+            // Implementar segï¿½n tu sistema de traducciï¿½n
         }
     }
 }

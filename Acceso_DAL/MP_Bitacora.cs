@@ -22,7 +22,7 @@ namespace Acceso_DAL
                 EventoBE ev = new EventoBE();
                 ev.registro = Convert.ToInt32(dr[0].ToString());
                 ev.usuario = dr[1].ToString();
-                ev.accion = dr[2].ToString();
+                ev.accion = (TipoAccion)Enum.Parse(typeof(TipoAccion), dr[2].ToString());
                 ev.fecha = Convert.ToDateTime(dr[3].ToString());
                 eventos.Add(ev);
             }

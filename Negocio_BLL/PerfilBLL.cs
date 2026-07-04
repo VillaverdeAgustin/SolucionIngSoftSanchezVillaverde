@@ -41,6 +41,44 @@ namespace Negocio_BLL
             return perfilDAL.ListaPermisosEnArbol();
         }
 
+        public List<Permiso> ListaPermisosRaiz()
+        {
+            return perfilDAL.ListaPermisosRaiz();
+        }
+
+        public bool TienePermiso(string nombreRol, string nombrePermiso)
+        {
+            if (string.IsNullOrEmpty(nombreRol))
+            {
+                return false;
+            }
+
+            Familia rol = ListaPermisosEnArbol().OfType<Familia>().FirstOrDefault(f => f.Nombre == nombreRol);
+            if (rol == null)
+            {
+                return false;
+            }
+
+            return BuscarPermisoRecursivo(rol, nombrePermiso);
+        }
+
+        private bool BuscarPermisoRecursivo(Familia familia, string nombrePermiso)
+        {
+            foreach (var hijo in familia.RetornarListaHijos())
+            {
+                if (hijo.Nombre == nombrePermiso)
+                {
+                    return true;
+                }
+
+                if (hijo is Familia familiaHijo && BuscarPermisoRecursivo(familiaHijo, nombrePermiso))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void AgregarFamilia(Familia pFamilia)
         {
             perfilDAL.AgregarFamilia(pFamilia);
@@ -72,7 +110,7 @@ namespace Negocio_BLL
             // Encontrar la familia con el nombre dado
             Familia familia = permisosEnArbol.OfType<Familia>().FirstOrDefault(f => f.Nombre == nombreFamilia);
 
-            // Devolver los hijos si se encuentra la familia, de lo contrario una lista vacía
+            // Devolver los hijos si se encuentra la familia, de lo contrario una lista vacï¿½a
             return familia?.RetornarListaHijos() ?? new List<Permiso>();
         }
 

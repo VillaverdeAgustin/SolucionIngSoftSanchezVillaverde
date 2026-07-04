@@ -10,6 +10,7 @@ namespace Negocio_BLL
         public int maxIntentos = 3;
         private UsuarioBE usuario;
         private MP_Usuario mpUsuario = new MP_Usuario();
+        private VerificadorIntegridadBLL integridad = new VerificadorIntegridadBLL();
 
         public List<UsuarioBE> ListarUsuarios()
         {
@@ -25,7 +26,8 @@ namespace Negocio_BLL
                 AuthOK = mpUsuario.Login(us);
                 if (AuthOK == LoginResult.LoginOK)
                 {
-                    SessionManager.GetInstance.Login(us);
+                    UsuarioBE completo = mpUsuario.ExtraerUsuario(us.user);
+                    SessionManager.GetInstance.Login(completo ?? us);
                     maxIntentos = 3;
                 }
             }
@@ -42,10 +44,15 @@ namespace Negocio_BLL
             if ((AuthOK != LoginResult.LoginOK) || (AuthOK != LoginResult.ExisteSesion)) { maxIntentos--; }
             if (maxIntentos == 0)
             {
-                usuario = new UsuarioBE();
-                usuario.user = us.user;
-                usuario.pass = " ";
-                mpUsuario.ActualizarBloqueo(usuario, true);
+                usuario = mpUsuario.ExtraerUsuario(us.user);
+                if (usuario != null)
+                {
+                    usuario.bloq = true;
+                    usuario.pass = " ";
+                    usuario.dvh = VerificadorIntegridad.CalcularDVH(usuario);
+                    mpUsuario.ActualizarBloqueo(usuario, true);
+                    integridad.ActualizarDVV();
+                }
                 AuthOK = LoginResult.FinIntentos;
             }
             return AuthOK;
@@ -63,8 +70,12 @@ namespace Negocio_BLL
             {
                 if (tipo == 1)//Verificar Nueva
                 {
+                    UsuarioBE aux = mpUsuario.ExtraerUsuario(SessionManager.GetInstance.UsuarioActual().user);
+                    aux.pass = encPass;
+                    aux.dvh = VerificadorIntegridad.CalcularDVH(aux);
+                    mpUsuario.CambiarPass(aux);
+                    integridad.ActualizarDVV();
                     SessionManager.GetInstance.UsuarioActual().pass = encPass;
-                    mpUsuario.CambiarPass(SessionManager.GetInstance.UsuarioActual());
                     maxIntentos = 3;
 
                     return 2;//Cambio de pass ok
@@ -74,9 +85,12 @@ namespace Negocio_BLL
                 {
                     if (tipo == 0)//Verificar Actual
                     {
-                        us.user = SessionManager.GetInstance.UsuarioActual().user;
-                        us.pass = " ";
-                        mpUsuario.ActualizarBloqueo(us, true);
+                        UsuarioBE aux = mpUsuario.ExtraerUsuario(SessionManager.GetInstance.UsuarioActual().user);
+                        aux.bloq = true;
+                        aux.pass = " ";
+                        aux.dvh = VerificadorIntegridad.CalcularDVH(aux);
+                        mpUsuario.ActualizarBloqueo(aux, true);
+                        integridad.ActualizarDVV();
                         return 2; //Falla Verificacion, Bloquea usuario
                     }
                     else
@@ -98,24 +112,36 @@ namespace Negocio_BLL
         {
             usuario = us;
             us.pass = Encriptador.EncriptarIrrev(us.pass);
+            us.bloq = false;
+            us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.ActualizarBloqueo(us, false);
+            integridad.ActualizarDVV();
         }
 
         public void CrearUsuario(UsuarioBE us)
         {
             usuario = us;
             us.pass = Encriptador.EncriptarIrrev(us.pass);
+            us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.CrearUsuario(us);
+            integridad.ActualizarDVV();
         }
 
         public void EliminarUs(UsuarioBE us)
         {
+            us.estado = false;
+            us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.EliminarUsuario(us);
+            integridad.ActualizarDVV();
         }
 
         public void ActualizarUsuario(UsuarioBE us)
         {
+            UsuarioBE actual = mpUsuario.ExtraerUsuario(us.user);
+            us.pass = actual != null ? actual.pass : us.pass;
+            us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.ActualizarUsuario(us);
+            integridad.ActualizarDVV();
         }
 
         public string GenerarPass(string ape, string dni)

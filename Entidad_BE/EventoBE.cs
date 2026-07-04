@@ -24,15 +24,15 @@ namespace Entidad_BE
 			set { _usuario = value; }
 		}
 
-		private string _accion;
+        private TipoAccion _accion;
 
-		public string accion
-		{
-			get { return _accion; }
-			set { _accion = value; }
-		}
+        public TipoAccion accion
+        {
+            get { return _accion; }
+            set { _accion = value; }
+        }
 
-		private DateTime _fecha;
+        private DateTime _fecha;
 
 		public DateTime fecha
 		{
@@ -42,13 +42,13 @@ namespace Entidad_BE
 
 		public EventoBE() { }
 
-		public EventoBE CrearRegistro(string[] datos)
-		{
-			this.registro = Convert.ToInt32(datos[0]);
-			this.usuario = datos[3];
-			this.accion = datos[1];
-			this.fecha = Convert.ToDateTime(datos[2]);
-			return this;
-		}
-	}
+        public EventoBE CrearRegistro(string[] datos)
+        {
+            this.registro = Convert.ToInt32(datos[0]);
+            this.usuario = datos[3];
+            this.accion = (TipoAccion)Convert.ToInt32(datos[1]);
+            this.fecha = Convert.ToDateTime(datos[2]);
+            return this;
+        }
+    }
 }

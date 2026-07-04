@@ -9,5 +9,7 @@ namespace Entidad_BE
     public interface IVerificable
     {
         string ObtenerCamposDV();
+
+        string digito { get; }
     }
 }

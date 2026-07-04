@@ -8,13 +8,16 @@ namespace Entidad_BE
 {
     public enum TipoPermiso
     {
-        CargarCarrito, 
-        ConsultarProducto, 
-        GenerarFactura, 
-        GestionUsuario,
+        LlenarCarrito,
+        SeleccionarProducto,
+        GenerarFactura,
+        GenerarReserva,
+        RealizarCobro,
+        RegistrarCliente,
+        GestionUsuarios,
         GestionPerfiles,
-        GestionIdiomas,
-        Clientes,
-        Productos
+        GestionProductos,
+        GestionBackup,
+        GestionBitacora
     }
 }

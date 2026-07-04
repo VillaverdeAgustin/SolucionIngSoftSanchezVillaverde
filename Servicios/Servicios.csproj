@@ -45,6 +45,7 @@
     <Compile Include="Encriptador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager.cs" />
+    <Compile Include="VerificadorIntegridad.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidad_BE\Entidad_BE.csproj">

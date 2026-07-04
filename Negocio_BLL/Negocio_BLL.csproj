@@ -44,6 +44,7 @@
     <Compile Include="BitacoraBLL.cs" />
     <Compile Include="PerfilBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
+    <Compile Include="VerificadorIntegridadBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
