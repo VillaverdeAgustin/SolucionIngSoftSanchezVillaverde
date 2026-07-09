@@ -390,10 +390,10 @@ namespace TP_SanchezVillaverde
                         roles.Add(permiso.Nombre);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    // Si hay error al cargar desde permisos, usar valores por defecto
-                    roles = new List<string>() { "Cajero", "Vendedor", "Administrador" };
+                    MessageBox.Show("Error cargando roles desde Perfiles: " + ex.Message);
+                    roles = new List<string>() { "Cajero", "Vendedor", "Admin" };
                 }
 
                 cmbRol.DataSource = new BindingSource(roles, null);
