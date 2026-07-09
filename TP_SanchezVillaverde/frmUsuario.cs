@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace TP_SanchezVillaverde
 {
-    public partial class frmUsuario : Form
+    public partial class frmUsuario : Form, IObservadorIdioma
     {
         public frmUsuario()
         {
@@ -20,8 +20,52 @@ namespace TP_SanchezVillaverde
         BitacoraBLL bitacora = new BitacoraBLL();
         UsuarioBLL usuarioBLL = new UsuarioBLL();
         PerfilBLL perfilBLL = new PerfilBLL();
+        GestorDeIdioma gestorIdioma = GestorDeIdioma.GetInstance;
         int varMod = 0; //Indica si la modificacion esta activa
         List<string> roles = new List<string>();
+
+        #region Patron Observer - Idiomas
+
+        public void ActualizarTextos()
+        {
+            this.Text = gestorIdioma.Traducir("USU_TITULO");
+            label1.Text = gestorIdioma.Traducir("USU_LBL_TITULO");
+            label2.Text = gestorIdioma.Traducir("USU_LBL_OPCIONES");
+            gbDatos.Text = gestorIdioma.Traducir("USU_GB_DATOS");
+            g.Text = gestorIdioma.Traducir("USU_GB_MENSAJES");
+            label3.Text = gestorIdioma.Traducir("USU_LBL_DNI");
+            label4.Text = gestorIdioma.Traducir("COMUN_NOMBRE");
+            label5.Text = gestorIdioma.Traducir("COMUN_APELLIDO");
+            label6.Text = gestorIdioma.Traducir("COMUN_USUARIO");
+            label7.Text = gestorIdioma.Traducir("COMUN_ROL");
+            label8.Text = gestorIdioma.Traducir("USU_LBL_DIRECCION");
+            label9.Text = gestorIdioma.Traducir("USU_LBL_TELEFONO");
+            label10.Text = gestorIdioma.Traducir("USU_LBL_EMAIL");
+            chkActivo.Text = gestorIdioma.Traducir("USU_CHK_ACTIVO");
+            chkBloqueado.Text = gestorIdioma.Traducir("USU_CHK_BLOQUEADO");
+            btnCrearUs.Text = gestorIdioma.Traducir("USU_BTN_CREAR");
+            btnModUs.Text = gestorIdioma.Traducir("USU_BTN_MODIFICAR");
+            btnElimUs.Text = gestorIdioma.Traducir("USU_BTN_ELIMINAR");
+            btnDesbloquear.Text = gestorIdioma.Traducir("USU_BTN_DESBLOQUEAR");
+            btnGuardar.Text = gestorIdioma.Traducir("COMUN_GUARDAR");
+            btnCancelar.Text = gestorIdioma.Traducir("COMUN_CANCELAR");
+            btnSalir.Text = gestorIdioma.Traducir("COMUN_SALIR");
+            TraducirColumnas();
+        }
+
+        private void TraducirColumnas()
+        {
+            if (dgvUsuarios.Columns.Count == 0) { return; }
+            dgvUsuarios.Columns[1].HeaderText = gestorIdioma.Traducir("USU_LBL_DNI");
+            dgvUsuarios.Columns[2].HeaderText = gestorIdioma.Traducir("COMUN_NOMBRE");
+            dgvUsuarios.Columns[3].HeaderText = gestorIdioma.Traducir("COMUN_APELLIDO");
+            dgvUsuarios.Columns[4].HeaderText = gestorIdioma.Traducir("COMUN_USUARIO");
+            dgvUsuarios.Columns[5].HeaderText = gestorIdioma.Traducir("COMUN_ROL");
+            dgvUsuarios.Columns[10].HeaderText = gestorIdioma.Traducir("USU_CHK_ACTIVO");
+            dgvUsuarios.Columns[11].HeaderText = gestorIdioma.Traducir("USU_CHK_BLOQUEADO");
+        }
+
+        #endregion
 
         #region Funciones
 
@@ -81,7 +125,8 @@ namespace TP_SanchezVillaverde
                 ultimoBoton.BackColor = Color.FromArgb(255, 192, 192);
             }
 
-            if ((sender as Button).Text != "Cancelar")
+            //Se compara contra el boton y no contra su texto porque el texto cambia segun el idioma activo
+            if (!ReferenceEquals(sender, btnCancelar))
             {
                 (sender as Button).BackColor = Color.LightCoral;
             }
@@ -126,13 +171,7 @@ namespace TP_SanchezVillaverde
             dgvUsuarios.Columns["cod"].Visible = false;
             dgvUsuarios.Columns["pass"].Visible = false;
             dgvUsuarios.Columns["dvh"].Visible = false;
-            dgvUsuarios.Columns[1].HeaderText = "DNI";
-            dgvUsuarios.Columns[2].HeaderText = "Nombre";
-            dgvUsuarios.Columns[3].HeaderText = "Apellido";
-            dgvUsuarios.Columns[4].HeaderText = "Usuario";
-            dgvUsuarios.Columns[5].HeaderText = "Rol";
-            dgvUsuarios.Columns[10].HeaderText = "Activo";
-            dgvUsuarios.Columns[11].HeaderText = "Bloqueado";
+            TraducirColumnas();
             dgvUsuarios.ReadOnly = true;
         }
 
@@ -336,32 +375,27 @@ namespace TP_SanchezVillaverde
             #region Texto de error en Campo Mensajes
             if (!txtOK)
             {
-                LlenarMensaje("Campos Nombre y/o Apellido contienen caracteres no validos." +
-                    "Ingrese solo letras por favor.");
+                LlenarMensaje(gestorIdioma.Traducir("USU_VAL_NOMBRE"));
             }
 
             if (!numOK)
             {
-                LlenarMensaje("Campos DNI y/o Telefono contienen caracteres no validos." +
-                    "Ingrese solo numeros por favor.");
+                LlenarMensaje(gestorIdioma.Traducir("USU_VAL_NUMEROS"));
             }
 
             if (!dirOK)
             {
-                LlenarMensaje("Campo Direccion contiene caracteres no validos." +
-                    "Ingrese solo letras y numeros por favor.");
+                LlenarMensaje(gestorIdioma.Traducir("USU_VAL_DIRECCION"));
             }
 
             if (!sensOK)
             {
-                LlenarMensaje("Campo Usuario contiene caracteres no validos." +
-                    "No se permiten espacios ni caracteres especiales.");
+                LlenarMensaje(gestorIdioma.Traducir("USU_VAL_USUARIO"));
             }
 
             if (!mailOK)
             {
-                LlenarMensaje("Campo eMail contiene caracteres no validos." +
-                    "Respete el formato xxxx@xxx.xxx, sin espacios ni caracteres especiales.");
+                LlenarMensaje(gestorIdioma.Traducir("USU_VAL_MAIL"));
             }
             #endregion
 
@@ -392,7 +426,7 @@ namespace TP_SanchezVillaverde
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error cargando roles desde Perfiles: " + ex.Message);
+                    MessageBox.Show(gestorIdioma.Traducir("USU_ERR_ROLES") + ex.Message);
                     roles = new List<string>() { "Cajero", "Vendedor", "Admin" };
                 }
 
@@ -400,6 +434,14 @@ namespace TP_SanchezVillaverde
                 ConfigDefaultForm();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            gestorIdioma.Suscribir(this);
+            this.FormClosed += frmUsuario_FormClosed;
+        }
+
+        private void frmUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            gestorIdioma.Desuscribir(this);
         }
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -487,7 +529,7 @@ namespace TP_SanchezVillaverde
                     {
                         if (Convert.ToInt32(fila.Cells[3].Value) == us.dni)
                         {
-                            LlenarMensaje("El DNI ingresado ya cuenta con un usuario");
+                            LlenarMensaje(gestorIdioma.Traducir("USU_MSG_DNI_EXISTE"));
                             ConfigDefaultForm();
                             error = 1;
                             break;
@@ -496,7 +538,7 @@ namespace TP_SanchezVillaverde
                         {
                             if (fila.Cells[4].Value.ToString() == us.user)
                             {
-                                LlenarMensaje("El usuario ingresado ya existe");
+                                LlenarMensaje(gestorIdioma.Traducir("USU_MSG_USER_EXISTE"));
                                 txtUsu.Text = "";
                                 error = 1;
                                 break;
@@ -510,12 +552,12 @@ namespace TP_SanchezVillaverde
                             us.pass = usuarioBLL.GenerarPass(us.ape, us.dni.ToString());
                             usuarioBLL.CrearUsuario(us);
                             ActualizarDGV();
-                            LlenarMensaje($"El usuario -- {us.user} -- fue creado exitosamente");
+                            LlenarMensaje(string.Format(gestorIdioma.Traducir("USU_MSG_CREADO"), us.user));
                             bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.AltaUsuario.ToString() + " " + us.user);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Ocurrio un error en la creacion de usuario: " + ex.Message);
+                            MessageBox.Show(gestorIdioma.Traducir("USU_ERR_CREAR") + ex.Message);
                             ConfigDefaultForm();
                         }
                     }
@@ -527,12 +569,12 @@ namespace TP_SanchezVillaverde
                         us.cod = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells[0].Value);
                         usuarioBLL.ActualizarUsuario(us);
                         ActualizarDGV();
-                        LlenarMensaje($"Usuario -- {us.user} -- actualizado correctamente");
+                        LlenarMensaje(string.Format(gestorIdioma.Traducir("USU_MSG_ACTUALIZADO"), us.user));
                         bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.ModificacionUsuario.ToString() + " " + us.user);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ocurrio un error en la actualizacion del usuario: " + ex.Message);
+                        MessageBox.Show(gestorIdioma.Traducir("USU_ERR_ACTUALIZAR") + ex.Message);
                         ConfigDefaultForm();
                     }
                 }
@@ -561,18 +603,18 @@ namespace TP_SanchezVillaverde
             try
             {
                 UsuarioBE us = ExtraerDatos(dgvUsuarios.SelectedRows[0]);
-                if (MessageBox.Show($"Desea eliminar el usuario -- {us.user}  -- ?", "Eliminar Usuario",
+                if (MessageBox.Show(string.Format(gestorIdioma.Traducir("USU_MSG_CONFIRMA_ELIMINAR"), us.user), gestorIdioma.Traducir("USU_BTN_ELIMINAR"),
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     usuarioBLL.EliminarUs(us);
                     ActualizarDGV();
-                    LlenarMensaje($"Baja de usuario -- {us.user} -- exitosa");
+                    LlenarMensaje(string.Format(gestorIdioma.Traducir("USU_MSG_BAJA_OK"), us.user));
                     bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.BajaUsuario.ToString() + " " + us.user);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo eliminar el usuario seleccionado: " + ex.Message);
+                MessageBox.Show(gestorIdioma.Traducir("USU_ERR_ELIMINAR") + ex.Message);
                 ConfigDefaultForm();
             }
         }
@@ -581,18 +623,18 @@ namespace TP_SanchezVillaverde
         {
             try
             {
-                if (MessageBox.Show("Desea continuar con el desbloqueo?", "Desbloquear Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(gestorIdioma.Traducir("USU_MSG_CONFIRMA_DESBLOQUEO"), gestorIdioma.Traducir("USU_TIT_DESBLOQUEAR"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     UsuarioBE aux = new UsuarioBE();
                     aux = ExtraerDatos(dgvUsuarios.SelectedRows[0]);
                     aux.pass = usuarioBLL.GenerarPass(aux.ape, aux.dni.ToString());
                     usuarioBLL.DesbloquearUS(aux);
-                    LlenarMensaje("Usuario desbloqueado exitosamente");
+                    LlenarMensaje(gestorIdioma.Traducir("USU_MSG_DESBLOQUEO_OK"));
                     bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.DesbloqueoUsuario.ToString() + " " + aux.user);
                     ActualizarDGV();
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error de comunicacion con la Base de datos. Contacte al Administrador: " + ex.Message); }
+            catch (Exception ex) { MessageBox.Show(gestorIdioma.Traducir("COMUN_ERROR_BD") + ex.Message); }
         }
 
         private void pUsuario_Paint(object sender, PaintEventArgs e)

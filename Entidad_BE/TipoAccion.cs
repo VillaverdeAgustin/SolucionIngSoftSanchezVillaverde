@@ -20,6 +20,7 @@ namespace Entidad_BE
         DesbloqueoUsuario = 10,
         BloqueoUsuario = 11,
         LoginFail = 12,
-        NoSesion = 13
+        NoSesion = 13,
+        CambioIdioma = 14
     }
 }

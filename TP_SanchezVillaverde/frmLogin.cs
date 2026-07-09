@@ -3,10 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using Entidad_BE;
 using Negocio_BLL;
+using Servicios;
 
 namespace TP_SanchezVillaverde
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : Form, IObservadorIdioma
     {
         public frmLogin()
         {
@@ -15,12 +16,75 @@ namespace TP_SanchezVillaverde
 
         UsuarioBLL usuario = new UsuarioBLL();
         BitacoraBLL bitacora = new BitacoraBLL();
+        GestorDeIdioma gestorIdioma = GestorDeIdioma.GetInstance;
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
             txtContra.boton = this.btnIniciar;
             lblError.Text = "";
+            CargarMenuIdiomas();
+            gestorIdioma.Suscribir(this);
+            this.FormClosed += frmLogin_FormClosed;
         }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            gestorIdioma.Desuscribir(this);
+        }
+
+        #region Patron Observer - Idiomas
+
+        public void ActualizarTextos()
+        {
+            this.Text = gestorIdioma.Traducir("LOGIN_TITULO");
+            lblUsuario.Text = gestorIdioma.Traducir("COMUN_USUARIO");
+            lblContra.Text = gestorIdioma.Traducir("COMUN_CONTRASENA");
+            btnIniciar.Text = gestorIdioma.Traducir("LOGIN_BTN_INICIAR");
+            btnCancelar.Text = gestorIdioma.Traducir("COMUN_CANCELAR");
+            lblSinConexion.Text = gestorIdioma.Traducir("LOGIN_LNK_SIN_CONEXION");
+            cambiarIdiomaToolStripMenuItem.Text = gestorIdioma.Traducir("MENU_CAMBIAR_IDIOMA");
+            MarcarIdiomaActivo();
+        }
+
+        private void CargarMenuIdiomas()
+        {
+            try
+            {
+                cambiarIdiomaToolStripMenuItem.DropDownItems.Clear();
+                foreach (IdiomaBE idioma in gestorIdioma.ObtenerIdiomas())
+                {
+                    ToolStripMenuItem item = new ToolStripMenuItem(idioma.Nombre);
+                    item.Tag = idioma.Codigo;
+                    item.Click += itemIdioma_Click;
+                    cambiarIdiomaToolStripMenuItem.DropDownItems.Add(item);
+                }
+            }
+            catch { }//Sin conexion a la BD no se ofrece el cambio de idioma
+        }
+
+        private void MarcarIdiomaActivo()
+        {
+            foreach (ToolStripMenuItem item in cambiarIdiomaToolStripMenuItem.DropDownItems)
+            {
+                item.Checked = gestorIdioma.IdiomaActual != null
+                    && item.Tag.ToString() == gestorIdioma.IdiomaActual.Codigo;
+            }
+        }
+
+        private void itemIdioma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gestorIdioma.CambiarIdioma((sender as ToolStripMenuItem).Tag.ToString());
+                bitacora.RegistrarBitacora("null", TipoAccion.CambioIdioma);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(gestorIdioma.Traducir("COMUN_ERROR_BD") + ex.Message);
+            }
+        }
+
+        #endregion
 
         private void txtContra_Load(object sender, EventArgs e)
         {
@@ -29,7 +93,7 @@ namespace TP_SanchezVillaverde
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea cerrar la aplicacion?", "Atencion",
+            if (MessageBox.Show(gestorIdioma.Traducir("COMUN_CONFIRMA_SALIR_APP"), gestorIdioma.Traducir("COMUN_ATENCION"),
             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 bitacora.RegistrarBitacora("null", TipoAccion.AppClose);
@@ -44,7 +108,7 @@ namespace TP_SanchezVillaverde
 
             if (!txtUsuario.ok || !txtContra.ok)
             {
-                MessageBox.Show("Los datos ingresados no cumplen con el formato requerido.", "Datos Invalidos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(gestorIdioma.Traducir("LOGIN_MSG_DATOS_INVALIDOS"), gestorIdioma.Traducir("LOGIN_TIT_DATOS_INVALIDOS"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -71,28 +135,28 @@ namespace TP_SanchezVillaverde
                         {
                             case LoginResult.UserInexistente:
                                 bitacora.RegistrarBitacora(user.user, TipoAccion.LoginFail);
-                                lblError.Text = "El usuario ingresado no existe";
+                                lblError.Text = gestorIdioma.Traducir("LOGIN_ERR_USER_INEXISTENTE");
                                 break;
                             case LoginResult.UserBloqueado:
                                 bitacora.RegistrarBitacora(user.user, TipoAccion.LoginFail);
-                                lblError.Text = "El usuario se encuentra bloqueado. Contacte al administrador";
+                                lblError.Text = gestorIdioma.Traducir("LOGIN_ERR_USER_BLOQUEADO");
                                 break;
                             case LoginResult.PassIncorrecta:
                                 bitacora.RegistrarBitacora(user.user, TipoAccion.LoginFail);
-                                lblError.Text = "La contraseña ingresada es incorrecta";
+                                lblError.Text = gestorIdioma.Traducir("LOGIN_ERR_PASS_INCORRECTA");
                                 break;
                             case LoginResult.UserInactivo:
                                 bitacora.RegistrarBitacora(user.user, TipoAccion.LoginFail);
-                                MessageBox.Show($"El usuario -->{user.user}<-- no esta disponible. Contacte al administrador.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show(string.Format(gestorIdioma.Traducir("LOGIN_MSG_USER_INACTIVO"), user.user), "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 break;
                             case LoginResult.FinIntentos:
                                 bitacora.RegistrarBitacora(user.user, TipoAccion.BloqueoUsuario);
-                                MessageBox.Show("Cantidad de intentos superado, se bloqueo el usuario. Cerrando la aplicacion.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(gestorIdioma.Traducir("LOGIN_MSG_FIN_INTENTOS"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 Application.Exit();
                                 break;
                             case LoginResult.SesionIniciada:
                                 bitacora.RegistrarBitacora(user.user, TipoAccion.Login);
-                                MessageBox.Show($"El usuario -->{user.user}<-- ya tiene la sesion iniciada.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show(string.Format(gestorIdioma.Traducir("LOGIN_MSG_SESION_INICIADA"), user.user), "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 frmMenu frm = new frmMenu();
                                 frm.Show();
                                 this.Hide();
@@ -100,20 +164,20 @@ namespace TP_SanchezVillaverde
                                 frm.FormClosing += frm_closing;
                                 break;
                             case LoginResult.ExisteSesion:
-                                if (MessageBox.Show("Ya existe una sesion iniciada, desea finalizarla?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show(gestorIdioma.Traducir("LOGIN_MSG_EXISTE_SESION"), " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     bitacora.RegistrarBitacora(user.user, TipoAccion.Logout);
                                     usuario.Logout();
-                                    MessageBox.Show("Sesion cerrada correctamente. Intente nuevamente con su usuario", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(gestorIdioma.Traducir("LOGIN_MSG_SESION_CERRADA"), " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
-                                else { MessageBox.Show("Intente nuevamente con el usuario actualmente en uso. Si no es el suyo por favor cierre la sesion", " ", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
+                                else { MessageBox.Show(gestorIdioma.Traducir("LOGIN_MSG_USUARIO_EN_USO"), " ", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
                                 break;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error de comunicacion con la Base de Datos: " + ex.Message);
+                    MessageBox.Show(gestorIdioma.Traducir("COMUN_ERROR_BD") + ex.Message);
                 }
             }
             txtUsuario.Limpiar();

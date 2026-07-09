@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EventoBE.cs" />
     <Compile Include="Familia.cs" />
+    <Compile Include="IdiomaBE.cs" />
     <Compile Include="IVerificable.cs" />
     <Compile Include="LoginResult.cs" />
     <Compile Include="Permiso.cs" />
