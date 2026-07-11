@@ -41,19 +41,23 @@ namespace Negocio_BLL
                 }
                 else { AuthOK = LoginResult.ExisteSesion; }
             }
-            if ((AuthOK != LoginResult.LoginOK) || (AuthOK != LoginResult.ExisteSesion)) { maxIntentos--; }
-            if (maxIntentos == 0)
+            if ((AuthOK != LoginResult.LoginOK) && (AuthOK != LoginResult.SesionIniciada))
             {
-                usuario = mpUsuario.ExtraerUsuario(us.user);
-                if (usuario != null)
+                if (AuthOK != LoginResult.ExisteSesion) { maxIntentos--; }
+                if (maxIntentos == 0)
                 {
-                    usuario.bloq = true;
-                    usuario.pass = " ";
-                    usuario.dvh = VerificadorIntegridad.CalcularDVH(usuario);
-                    mpUsuario.ActualizarBloqueo(usuario, true);
-                    integridad.ActualizarDVV();
+                    usuario = mpUsuario.ExtraerUsuario(us.user);
+                    if (usuario != null)
+                    {
+                        usuario.bloq = true;
+                        usuario.pass = " ";
+                        usuario.dvh = VerificadorIntegridad.CalcularDVH(usuario);
+                        mpUsuario.ActualizarBloqueo(usuario, true);
+                        integridad.ActualizarDVV();
+                    }
+                    maxIntentos = 3;
+                    AuthOK = LoginResult.FinIntentos;
                 }
-                AuthOK = LoginResult.FinIntentos;
             }
             return AuthOK;
         }
@@ -124,6 +128,14 @@ namespace Negocio_BLL
             us.pass = Encriptador.EncriptarIrrev(us.pass);
             us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.CrearUsuario(us);
+            //El Codigo es IDENTITY: recien despues del INSERT se conoce el valor real,
+            //por lo que el DVH debe recalcularse con el usuario ya persistido
+            UsuarioBE creado = mpUsuario.ExtraerUsuario(us.user);
+            if (creado != null)
+            {
+                creado.dvh = VerificadorIntegridad.CalcularDVH(creado);
+                mpUsuario.ActualizarUsuario(creado);
+            }
             integridad.ActualizarDVV();
         }
 
