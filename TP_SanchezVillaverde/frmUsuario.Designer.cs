@@ -38,6 +38,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnDesbloquear = new System.Windows.Forms.Button();
+            this.btnHistorial = new System.Windows.Forms.Button();
             this.btnElimUs = new System.Windows.Forms.Button();
             this.btnModUs = new System.Windows.Forms.Button();
             this.btnCrearUs = new System.Windows.Forms.Button();
@@ -78,6 +79,7 @@
             this.pUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pUsuario.Controls.Add(this.btnHistorial);
             this.pUsuario.Controls.Add(this.btnSalir);
             this.pUsuario.Controls.Add(this.btnCancelar);
             this.pUsuario.Controls.Add(this.btnGuardar);
@@ -153,9 +155,24 @@
             this.btnDesbloquear.Text = "Desbloquear";
             this.btnDesbloquear.UseVisualStyleBackColor = false;
             this.btnDesbloquear.Click += new System.EventHandler(this.btnDesbloquear_Click);
-            // 
+            //
+            // btnHistorial
+            //
+            this.btnHistorial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnHistorial.Location = new System.Drawing.Point(867, 373);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(118, 29);
+            this.btnHistorial.TabIndex = 10;
+            this.btnHistorial.Text = "Ver Historial";
+            this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            //
             // btnElimUs
-            // 
+            //
             this.btnElimUs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnElimUs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnElimUs.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -576,6 +593,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnDesbloquear;
+        private System.Windows.Forms.Button btnHistorial;
         private System.Windows.Forms.Button btnElimUs;
         private System.Windows.Forms.Button btnModUs;
         private System.Windows.Forms.Button btnCrearUs;

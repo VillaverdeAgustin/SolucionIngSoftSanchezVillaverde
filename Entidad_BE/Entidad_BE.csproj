@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambioBE.cs" />
     <Compile Include="EventoBE.cs" />
+    <Compile Include="IOriginadorCambios.cs" />
+    <Compile Include="MementoBE.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="IdiomaBE.cs" />
     <Compile Include="IVerificable.cs" />

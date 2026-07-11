@@ -9,7 +9,8 @@ namespace Servicios
         {
             EventoBE evento = new EventoBE();
             evento.usuario = us;
-            evento.accion = (TipoAccion)Enum.Parse(typeof(TipoAccion), accion);
+            //La accion puede llegar con detalle ("AltaUsuario pepe"): solo el primer token es el enum
+            evento.accion = (TipoAccion)Enum.Parse(typeof(TipoAccion), accion.Split(' ')[0]);
             evento.fecha = DateTime.Now;
             return evento;
         }

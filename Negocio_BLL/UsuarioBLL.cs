@@ -11,6 +11,15 @@ namespace Negocio_BLL
         private UsuarioBE usuario;
         private MP_Usuario mpUsuario = new MP_Usuario();
         private VerificadorIntegridadBLL integridad = new VerificadorIntegridadBLL();
+        private HistorialCambiosBLL historialCambios = new HistorialCambiosBLL();
+
+        //Autor del cambio para el historial: el usuario logueado o, si no
+        //hay sesion (ej. bloqueo desde el login), el usuario alternativo
+        private string ResponsableActual(string alternativo)
+        {
+            UsuarioBE actual = SessionManager.GetInstance.UsuarioActual();
+            return actual != null ? actual.user : alternativo;
+        }
 
         public List<UsuarioBE> ListarUsuarios()
         {
@@ -49,11 +58,13 @@ namespace Negocio_BLL
                     usuario = mpUsuario.ExtraerUsuario(us.user);
                     if (usuario != null)
                     {
+                        MementoBE antes = usuario.CrearMemento();
                         usuario.bloq = true;
                         usuario.pass = " ";
                         usuario.dvh = VerificadorIntegridad.CalcularDVH(usuario);
                         mpUsuario.ActualizarBloqueo(usuario, true);
                         integridad.ActualizarDVV();
+                        historialCambios.RegistrarCambiosUsuario(antes, usuario, ResponsableActual(us.user));
                     }
                     maxIntentos = 3;
                     AuthOK = LoginResult.FinIntentos;
@@ -75,10 +86,12 @@ namespace Negocio_BLL
                 if (tipo == 1)//Verificar Nueva
                 {
                     UsuarioBE aux = mpUsuario.ExtraerUsuario(SessionManager.GetInstance.UsuarioActual().user);
+                    MementoBE antes = aux.CrearMemento();
                     aux.pass = encPass;
                     aux.dvh = VerificadorIntegridad.CalcularDVH(aux);
                     mpUsuario.CambiarPass(aux);
                     integridad.ActualizarDVV();
+                    historialCambios.RegistrarCambiosUsuario(antes, aux, ResponsableActual(aux.user));
                     SessionManager.GetInstance.UsuarioActual().pass = encPass;
                     maxIntentos = 3;
 
@@ -90,11 +103,13 @@ namespace Negocio_BLL
                     if (tipo == 0)//Verificar Actual
                     {
                         UsuarioBE aux = mpUsuario.ExtraerUsuario(SessionManager.GetInstance.UsuarioActual().user);
+                        MementoBE antes = aux.CrearMemento();
                         aux.bloq = true;
                         aux.pass = " ";
                         aux.dvh = VerificadorIntegridad.CalcularDVH(aux);
                         mpUsuario.ActualizarBloqueo(aux, true);
                         integridad.ActualizarDVV();
+                        historialCambios.RegistrarCambiosUsuario(antes, aux, ResponsableActual(aux.user));
                         return 2; //Falla Verificacion, Bloquea usuario
                     }
                     else
@@ -114,12 +129,17 @@ namespace Negocio_BLL
 
         public void DesbloquearUS(UsuarioBE us)
         {
-            usuario = us;
+            //El memento se toma del usuario persistido: us ya trae la pass nueva en claro
+            UsuarioBE anterior = mpUsuario.ExtraerUsuario(us.user);
             us.pass = Encriptador.EncriptarIrrev(us.pass);
             us.bloq = false;
             us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.ActualizarBloqueo(us, false);
             integridad.ActualizarDVV();
+            if (anterior != null)
+            {
+                historialCambios.RegistrarCambiosUsuario(anterior.CrearMemento(), us, ResponsableActual(us.user));
+            }
         }
 
         public void CrearUsuario(UsuarioBE us)
@@ -141,10 +161,12 @@ namespace Negocio_BLL
 
         public void EliminarUs(UsuarioBE us)
         {
+            MementoBE antes = us.CrearMemento();
             us.estado = false;
             us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.EliminarUsuario(us);
             integridad.ActualizarDVV();
+            historialCambios.RegistrarCambiosUsuario(antes, us, ResponsableActual(us.user));
         }
 
         public void ActualizarUsuario(UsuarioBE us)
@@ -154,6 +176,10 @@ namespace Negocio_BLL
             us.dvh = VerificadorIntegridad.CalcularDVH(us);
             mpUsuario.ActualizarUsuario(us);
             integridad.ActualizarDVV();
+            if (actual != null)
+            {
+                historialCambios.RegistrarCambiosUsuario(actual.CrearMemento(), us, ResponsableActual(us.user));
+            }
         }
 
         public string GenerarPass(string ape, string dni)

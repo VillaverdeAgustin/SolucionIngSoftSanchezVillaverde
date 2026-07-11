@@ -44,6 +44,7 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="IdiomaDAL.cs" />
     <Compile Include="MP_Bitacora.cs" />
+    <Compile Include="MP_HistorialCambios.cs" />
     <Compile Include="MP_Usuario.cs" />
     <Compile Include="MP_VerificadorIntegridad.cs" />
     <Compile Include="PerfilDAL.cs" />

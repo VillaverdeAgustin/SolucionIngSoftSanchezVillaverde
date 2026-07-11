@@ -21,6 +21,7 @@ namespace Entidad_BE
         BloqueoUsuario = 11,
         LoginFail = 12,
         NoSesion = 13,
-        CambioIdioma = 14
+        CambioIdioma = 14,
+        ConsultaHistorial = 15
     }
 }

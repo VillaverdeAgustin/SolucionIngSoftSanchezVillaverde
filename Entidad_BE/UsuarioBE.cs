@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidad_BE
 {
-    public class UsuarioBE : IVerificable
+    public class UsuarioBE : IVerificable, IOriginadorCambios
     {
         private int _cod;
 
@@ -150,5 +150,45 @@ namespace Entidad_BE
                 estado,
                 bloq);
         }
+
+        #region Patron Memento - Control de Cambios (T06b)
+
+        //Se fotografian solo los campos de negocio auditables:
+        //cod es la identidad (no cambia) y dvh es un campo tecnico derivado
+        public MementoBE CrearMemento()
+        {
+            return new MementoBE(new Dictionary<string, string>
+            {
+                { "dni",    dni.ToString() },
+                { "nomb",   nomb },
+                { "ape",    ape },
+                { "user",   user },
+                { "rol",    rol },
+                { "pass",   pass },
+                { "dir",    dir },
+                { "tel",    tel },
+                { "email",  email },
+                { "estado", estado.ToString() },
+                { "bloq",   bloq.ToString() }
+            });
+        }
+
+        public void RestaurarMemento(MementoBE memento)
+        {
+            Dictionary<string, string> datos = memento.ObtenerEstado();
+            this.dni = Convert.ToInt32(datos["dni"]);
+            this.nomb = datos["nomb"];
+            this.ape = datos["ape"];
+            this.user = datos["user"];
+            this.rol = datos["rol"];
+            this.pass = datos["pass"];
+            this.dir = datos["dir"];
+            this.tel = datos["tel"];
+            this.email = datos["email"];
+            this.estado = Convert.ToBoolean(datos["estado"]);
+            this.bloq = Convert.ToBoolean(datos["bloq"]);
+        }
+
+        #endregion
     }
 }

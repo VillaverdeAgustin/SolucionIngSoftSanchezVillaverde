@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BitacoraBLL.cs" />
     <Compile Include="GestorDeIdioma.cs" />
+    <Compile Include="HistorialCambiosBLL.cs" />
     <Compile Include="PerfilBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
     <Compile Include="VerificadorIntegridadBLL.cs" />

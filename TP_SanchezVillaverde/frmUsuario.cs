@@ -47,6 +47,7 @@ namespace TP_SanchezVillaverde
             btnModUs.Text = gestorIdioma.Traducir("USU_BTN_MODIFICAR");
             btnElimUs.Text = gestorIdioma.Traducir("USU_BTN_ELIMINAR");
             btnDesbloquear.Text = gestorIdioma.Traducir("USU_BTN_DESBLOQUEAR");
+            btnHistorial.Text = gestorIdioma.Traducir("USU_BTN_HISTORIAL");
             btnGuardar.Text = gestorIdioma.Traducir("COMUN_GUARDAR");
             btnCancelar.Text = gestorIdioma.Traducir("COMUN_CANCELAR");
             btnSalir.Text = gestorIdioma.Traducir("COMUN_SALIR");
@@ -78,6 +79,7 @@ namespace TP_SanchezVillaverde
             HabilitarBtn(btnModUs, false);
             HabilitarBtn(btnElimUs, false);
             HabilitarBtn(btnDesbloquear, false);
+            HabilitarBtn(btnHistorial, false);
             dgvUsuarios.Enabled = true;
             chkActivo.Enabled = false;
             varMod = 0;
@@ -482,6 +484,7 @@ namespace TP_SanchezVillaverde
                 }
                 HabilitarBtn(btnCancelar, true);
                 HabilitarBtn(btnModUs, true);
+                HabilitarBtn(btnHistorial, true);
                 HabilitarBtn(btnGuardar, false);
             }
             else { ConfigDefaultForm(); }
@@ -499,6 +502,7 @@ namespace TP_SanchezVillaverde
         {
             HabilitarBtn(btnCancelar, true);
             HabilitarBtn(btnDesbloquear, false);
+            HabilitarBtn(btnHistorial, false);
             HabilitarBtn(btnCrearUs, false);
             HabilitarBtn(btnElimUs, false);
             HabilitarBtn(btnModUs, false);
@@ -586,6 +590,7 @@ namespace TP_SanchezVillaverde
             varMod = 1;
             HabilitarBtn(btnCancelar, true);
             HabilitarBtn(btnDesbloquear, false);
+            HabilitarBtn(btnHistorial, false);
             HabilitarBtn(btnCrearUs, false);
             HabilitarBtn(btnElimUs, false);
             HabilitarBtn(btnModUs, false);
@@ -633,6 +638,20 @@ namespace TP_SanchezVillaverde
                     bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.DesbloqueoUsuario.ToString() + " " + aux.user);
                     ActualizarDGV();
                 }
+            }
+            catch (Exception ex) { MessageBox.Show(gestorIdioma.Traducir("COMUN_ERROR_BD") + ex.Message); }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvUsuarios.SelectedRows.Count == 0) { return; }
+                int cod = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells["cod"].Value);
+                string user = dgvUsuarios.SelectedRows[0].Cells["user"].Value.ToString();
+                bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user, TipoAccion.ConsultaHistorial.ToString() + " " + user);
+                frmHistorialCambios frm = new frmHistorialCambios(cod, user);
+                frm.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(gestorIdioma.Traducir("COMUN_ERROR_BD") + ex.Message); }
         }
