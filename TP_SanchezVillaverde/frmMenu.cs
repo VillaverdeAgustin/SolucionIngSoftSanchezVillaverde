@@ -237,6 +237,15 @@ namespace TP_SanchezVillaverde
             frmperfil.ShowDialog();
         }
 
+        private void idiomasToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmIdiomas frmIdiomas = new frmIdiomas();
+            frmIdiomas.ShowDialog();
+            //Puede haberse dado de alta un idioma: se rearma el menu de idiomas
+            CargarMenuIdiomas();
+            MarcarIdiomaActivo();
+        }
+
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 

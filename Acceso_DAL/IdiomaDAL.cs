@@ -29,17 +29,42 @@ namespace Acceso_DAL
         public Dictionary<string, string> ObtenerTraducciones(int idIdioma)
         {
             Dictionary<string, string> traducciones = new Dictionary<string, string>();
-            SqlParameter[] parametros = new SqlParameter[]
-            {
-                new SqlParameter("@IdIdioma", idIdioma)
-            };
-            DataTable dt = acceso.LeerTabla("SP_ExtTraducciones", parametros);
-
-            foreach (DataRow fila in dt.Rows)
+            foreach (DataRow fila in ObtenerTablaTraducciones(idIdioma).Rows)
             {
                 traducciones[fila["Clave"].ToString()] = fila["Texto"].ToString();
             }
             return traducciones;
+        }
+
+        public DataTable ObtenerTablaTraducciones(int idIdioma)
+        {
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@IdIdioma", idIdioma)
+            };
+            return acceso.LeerTabla("SP_ExtTraducciones", parametros);
+        }
+
+        public void CrearIdioma(string codigo, string nombre, string codigoBase)
+        {
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@Codigo", codigo),
+                new SqlParameter("@Nombre", nombre),
+                new SqlParameter("@CodigoBase", codigoBase)
+            };
+            acceso.Escribir("SP_CrearIdioma", parametros);
+        }
+
+        public void ActualizarTraduccion(int idIdioma, string clave, string texto)
+        {
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@IdIdioma", idIdioma),
+                new SqlParameter("@Clave", clave),
+                new SqlParameter("@Texto", texto)
+            };
+            acceso.Escribir("SP_ActualizarTraduccion", parametros);
         }
     }
 }

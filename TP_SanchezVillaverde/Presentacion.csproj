@@ -59,6 +59,12 @@
     <Compile Include="frmGestionPerfiles.Designer.cs">
       <DependentUpon>frmGestionPerfiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIdiomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIdiomas.Designer.cs">
+      <DependentUpon>frmIdiomas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModClave.cs">
       <SubType>Form</SubType>
     </Compile>

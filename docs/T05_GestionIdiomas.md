@@ -153,7 +153,18 @@ erDiagram
 
 `PREFIJO_TIPO_NOMBRE` — prefijo por módulo (`LOGIN_`, `MENU_`, `USU_`, `BIT_`, `CLAVE_`, `PERF_`) o `COMUN_` para textos compartidos (Guardar, Cancelar, Salir, confirmaciones, error de BD). Tipos: `LBL` (etiquetas), `BTN` (botones), `GB` (group boxes), `CHK` (checkboxes), `COL` (columnas de grilla), `MSG` (mensajes informativos), `ERR` (errores), `TIT` (títulos de diálogo), `TS` (menúes), `VAL` (validaciones). Los mensajes parametrizados usan `{0}`.
 
-## 8. Balanceo con la implementación
+## 8. Alta y mantenimiento de idiomas desde la aplicación (`frmIdiomas`)
+
+Desde **Admin → Idiomas** se abre `frmIdiomas`, que completa el ciclo de vida del modelo:
+
+- **Alta de idioma**: código (máx. 5, se fuerza mayúsculas) + nombre. `GestorDeIdioma.AgregarIdioma` valida datos obligatorios, longitudes y código no repetido (mensajes de error también traducidos), y `SP_CrearIdioma` inserta el idioma **copiando todas las traducciones del idioma base (ES)** como punto de partida: el idioma nuevo es funcional desde el primer momento, sin claves crudas en pantalla.
+- **Edición de traducciones**: grilla (Clave de solo lectura, Texto editable) por idioma; al guardar, `GestorDeIdioma.GuardarTraducciones` persiste los cambios (`SP_ActualizarTraduccion`) y, si el idioma editado es el activo, **recarga el diccionario y notifica a los observadores**: las ventanas abiertas reflejan el texto corregido al instante (mismo mecanismo Observer del cambio de idioma).
+- Al cerrar el formulario, `frmMenu` rearma su submenú de idiomas, por lo que el idioma recién creado aparece disponible sin reiniciar.
+- Bitácora: nuevas acciones `AltaIdioma` (15) y `ModificacionIdioma` (16).
+- `frmIdiomas` es también un observador (`IObservadorIdioma`): su propia interfaz se traduce (claves `IDI_*`).
+- Script asociado: [`Migracion_T05_AltaIdioma.sql`](../Migracion_T05_AltaIdioma.sql) (SPs `SP_CrearIdioma` y `SP_ActualizarTraduccion` + claves `IDI_*`).
+
+## 9. Balanceo con la implementación
 
 | Elemento del diseño | Implementación |
 |---|---|

@@ -1,3 +1,13 @@
+Ôªø-- Script de creacion de FerreDB (TP SanchezVillaverde)
+-- Crea la base si no existe y fuerza el contexto con USE,
+-- para que las tablas NUNCA se creen en otra base por accidente.
+IF DB_ID(N'FerreDB') IS NULL
+BEGIN
+    CREATE DATABASE [FerreDB];
+END
+GO
+USE [FerreDB]
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +132,7 @@ CREATE TABLE [dbo].[Usuarios](
 	[Apellido] [varchar](50) COLLATE Modern_Spanish_CI_AS NOT NULL,
 	[Usuario] [varchar](50) COLLATE Modern_Spanish_CI_AS NOT NULL,
 	[Rol] [nvarchar](100) COLLATE Modern_Spanish_CI_AS NULL,
-	[ContraseÒa] [varchar](65) COLLATE Modern_Spanish_CI_AS NULL,
+	[Contrase√±a] [varchar](65) COLLATE Modern_Spanish_CI_AS NULL,
 	[Direccion] [varchar](50) COLLATE Modern_Spanish_CI_AS NULL,
 	[Telefono] [varchar](50) COLLATE Modern_Spanish_CI_AS NULL,
 	[Email] [varchar](50) COLLATE Modern_Spanish_CI_AS NULL,
@@ -348,13 +358,13 @@ BEGIN
 			END
 			ELSE
 			BEGIN
-				IF EXISTS (SELECT 1 FROM Usuarios WHERE Usuario = @user AND ContraseÒa = @pass)
+				IF EXISTS (SELECT 1 FROM Usuarios WHERE Usuario = @user AND Contrase√±a = @pass)
 				BEGIN
 					SET @Result = 1; --Indica Login correcto
 				END
 				ELSE
 				BEGIN
-					SET @Result = 3; --Indica contraseÒa incorrecta
+					SET @Result = 3; --Indica contrase√±a incorrecta
 				END
 			END
 		END
@@ -413,7 +423,7 @@ CREATE PROCEDURE [dbo].[SP_CrearUsuario]
     @Apellido NVARCHAR(50),
     @Usuario NVARCHAR(50),
     @Rol NVARCHAR(50),
-    @ContraseÒa NVARCHAR(65),
+    @Contrase√±a NVARCHAR(65),
     @Direccion NVARCHAR(50),
     @Telefono NVARCHAR(50),
     @Email NVARCHAR(50),
@@ -425,8 +435,8 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	INSERT INTO Usuarios (DNI, Nombre, Apellido, Usuario, Rol, ContraseÒa, Direccion, Telefono, Email, Activo, Bloqueado, DVH)
-	VALUES (@DNI, @Nombre, @Apellido, @Usuario, @Rol, @ContraseÒa, @Direccion, @Telefono, @Email, @Activo, @Bloqueado,@DVH);
+	INSERT INTO Usuarios (DNI, Nombre, Apellido, Usuario, Rol, Contrase√±a, Direccion, Telefono, Email, Activo, Bloqueado, DVH)
+	VALUES (@DNI, @Nombre, @Apellido, @Usuario, @Rol, @Contrase√±a, @Direccion, @Telefono, @Email, @Activo, @Bloqueado,@DVH);
 END
 GO
 SET ANSI_NULLS ON
@@ -446,7 +456,7 @@ BEGIN
 
     BEGIN 
 		UPDATE Usuarios
-        SET ContraseÒa = @pass, DVH = @DVH
+        SET Contrase√±a = @pass, DVH = @DVH
         WHERE Usuario = @Usuario;
     END
 END
@@ -464,7 +474,7 @@ AS
 begin
 	UPDATE Usuarios
 	SET Bloqueado = @Bloqueado, DVH = @DVH,
-	ContraseÒa = @pass
+	Contrase√±a = @pass
 	WHERE Usuario = @Usuario;
 end
 --BEGIN
@@ -478,8 +488,15 @@ end
 --	BEGIN
 --		UPDATE Usuarios
 --		SET Bloqueado = @Bloqueado, DVH = @DVH,
---		ContraseÒa = @pass
+--		Contrase√±a = @pass
 --		WHERE Usuario = @Usuario;
 --	END
 --END
+
+insert into Usuarios (DNI,Nombre,Apellido,Usuario,Contrase√±a,Rol,Activo,Bloqueado,DVH)
+values(32382883,'Carlos','Sanchez','sanchezcarlos','ef994e7262a78b97c039adf58214ee7df1076824a7e47538948ba61ae02b05c7','Admin',1,0,'asd123asd') 
+
+insert into Permiso(Nombre_Permiso,Tipo,Rol,Nombre_PermisoPadre)
+values('Admin','Admin',1,'Vendedor')
+
 GO
