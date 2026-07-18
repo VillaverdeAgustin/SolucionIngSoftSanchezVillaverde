@@ -6,6 +6,9 @@
 -- Ejecutar sobre la base FerreDB.
 -- =============================================================
 
+USE [FerreDB]
+GO
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
