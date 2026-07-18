@@ -1,0 +1,137 @@
+﻿# Archivo de traducciones - Portugues (PT)
+# Formato: CLAVE;Texto (una por linea, UTF-8). Las lineas con # se ignoran.
+# Usar desde: Admin > Idiomas > Nuevo Idioma > Examinar...
+
+COMUN_ATENCION;Atenção
+COMUN_CONFIRMA_SALIR_APP;Tem certeza de que deseja fechar o aplicativo?
+COMUN_CONFIRMA_CERRAR_SESION;Tem certeza de que deseja encerrar a sessão?
+COMUN_ERROR_BD;Erro de comunicação com o Banco de Dados: 
+COMUN_SALIR;Sair
+COMUN_CANCELAR;Cancelar
+COMUN_GUARDAR;Salvar
+COMUN_ACEPTAR;Aceitar
+COMUN_USUARIO;Usuário
+COMUN_CONTRASENA;Senha
+COMUN_ROL;Função
+COMUN_NOMBRE;Nome
+COMUN_APELLIDO;Sobrenome
+COMUN_FECHA;Data
+COMUN_ACCION;Ação
+LOGIN_TITULO;Login
+LOGIN_BTN_INICIAR;Entrar
+LOGIN_LNK_SIN_CONEXION;Iniciar sem conexão
+LOGIN_TIT_DATOS_INVALIDOS;Dados Inválidos
+LOGIN_MSG_DATOS_INVALIDOS;Os dados informados não atendem ao formato exigido.
+LOGIN_ERR_USER_INEXISTENTE;O usuário informado não existe
+LOGIN_ERR_USER_BLOQUEADO;O usuário está bloqueado. Contate o administrador
+LOGIN_ERR_PASS_INCORRECTA;A senha informada está incorreta
+LOGIN_MSG_USER_INACTIVO;O usuário -->{0}<-- não está disponível. Contate o administrador.
+LOGIN_MSG_FIN_INTENTOS;Número de tentativas excedido, o usuário foi bloqueado. Fechando o aplicativo.
+LOGIN_MSG_SESION_INICIADA;O usuário -->{0}<-- já possui uma sessão ativa.
+LOGIN_MSG_EXISTE_SESION;Já existe uma sessão ativa, deseja encerrá-la?
+LOGIN_MSG_SESION_CERRADA;Sessão encerrada com sucesso. Tente novamente com seu usuário
+LOGIN_MSG_USUARIO_EN_USO;Tente novamente com o usuário atualmente em uso. Se não for o seu, por favor encerre a sessão
+MENU_TS_INICIO;Início
+MENU_INICIAR_SESION;Entrar
+MENU_CERRAR_SESION;Encerrar Sessão
+MENU_TS_ADMIN;Admin
+MENU_GESTION_USUARIOS;Gestão de Usuários
+MENU_PERFILES;Perfis
+MENU_IDIOMAS;Idiomas
+MENU_BACKUP;Backup
+MENU_RESTORE;Restore
+MENU_BITACORA;Registro de Eventos
+MENU_CAMBIAR_CLAVE;Alterar Senha
+MENU_CAMBIAR_IDIOMA;Alterar Idioma
+MENU_TS_VENTAS;Vendas
+MENU_LLENAR_CARRITO;Encher Carrinho
+MENU_REALIZAR_VENTA;Realizar Venda
+MENU_TS_GESTION;Gestão
+MENU_CLIENTE;Cliente
+MENU_PRODUCTOS;Produtos
+MENU_PROVEEDORES;Fornecedores
+MENU_TS_REPORTES;Relatórios
+MENU_TS_AYUDA;Ajuda
+MENU_LBL_USUARIO;Usuário: 
+MENU_LBL_SIN_CONEXION;Usuário: Sem Conexão
+USU_TITULO;Gestão de Usuários
+USU_LBL_TITULO;GESTÃO DE USUÁRIOS
+USU_LBL_OPCIONES;Opções
+USU_GB_DATOS;Dados do Usuário
+USU_GB_MENSAJES;Mensagens
+USU_LBL_DNI;Documento
+USU_LBL_DIRECCION;Endereço
+USU_LBL_TELEFONO;Telefone
+USU_LBL_EMAIL;E-mail
+USU_CHK_ACTIVO;Ativo
+USU_CHK_BLOQUEADO;Bloqueado
+USU_BTN_CREAR;Criar Usuário
+USU_BTN_MODIFICAR;Editar Usuário
+USU_BTN_ELIMINAR;Excluir Usuário
+USU_BTN_DESBLOQUEAR;Desbloquear
+USU_MSG_DNI_EXISTE;O documento informado já possui um usuário
+USU_MSG_USER_EXISTE;O usuário informado já existe
+USU_MSG_CREADO;O usuário -- {0} -- foi criado com sucesso
+USU_MSG_ACTUALIZADO;Usuário -- {0} -- atualizado com sucesso
+USU_MSG_CONFIRMA_ELIMINAR;Deseja excluir o usuário -- {0} -- ?
+USU_MSG_BAJA_OK;Usuário -- {0} -- desativado com sucesso
+USU_MSG_CONFIRMA_DESBLOQUEO;Deseja continuar com o desbloqueio?
+USU_TIT_DESBLOQUEAR;Desbloquear Usuário
+USU_MSG_DESBLOQUEO_OK;Usuário desbloqueado com sucesso
+USU_ERR_CREAR;Ocorreu um erro na criação do usuário: 
+USU_ERR_ACTUALIZAR;Ocorreu um erro na atualização do usuário: 
+USU_ERR_ELIMINAR;Não foi possível excluir o usuário selecionado: 
+USU_ERR_ROLES;Erro ao carregar funções de Perfis: 
+USU_VAL_NOMBRE;Os campos Nome e/ou Sobrenome contêm caracteres inválidos. Digite apenas letras, por favor.
+USU_VAL_NUMEROS;Os campos Documento e/ou Telefone contêm caracteres inválidos. Digite apenas números, por favor.
+USU_VAL_DIRECCION;O campo Endereço contém caracteres inválidos. Digite apenas letras e números, por favor.
+USU_VAL_USUARIO;O campo Usuário contém caracteres inválidos. Não são permitidos espaços nem caracteres especiais.
+USU_VAL_MAIL;O campo E-mail contém caracteres inválidos. Siga o formato xxxx@xxx.xxx, sem espaços nem caracteres especiais.
+BIT_TITULO;Registro de Eventos
+BIT_LBL_TITULO;EVENTOS
+BIT_COL_REGISTRO;ID do Registro
+CLAVE_TITULO;Alterar Senha
+CLAVE_LBL_ACTUAL;Senha Atual
+CLAVE_LBL_NUEVA;Nova Senha
+CLAVE_LBL_REPETIR;Repetir Senha
+CLAVE_BTN_CONFIRMAR;Confirmar
+CLAVE_MSG_INSTRUCCIONES;Digite uma senha diferente da anterior. Lembre-se de usar apenas letras e números
+CLAVE_ERR_INTENTOS;Senha incorreta, restam {0} tentativas
+CLAVE_MSG_BLOQUEADO;Número de tentativas excedido, usuário bloqueado. Contate o administrador
+CLAVE_TIT_BLOQUEADO;Usuário Bloqueado
+CLAVE_MSG_OK;Senha alterada com sucesso
+CLAVE_TIT_OK;Nova Senha
+CLAVE_ERR_FORMATO;Formato de senha informado incorreto
+CLAVE_ERR_DISTINTAS;As senhas são diferentes, tente novamente
+CLAVE_ERR_IGUAL_ANTERIOR;A nova senha deve ser diferente da anterior
+CLAVE_ERR_NO_FORMATO;A senha não atende ao formato exigido
+PERF_TITULO;Gestão de Perfis
+PERF_LBL_TITULO;GESTÃO DE PERFIS
+PERF_GB_DATOS;Dados do Perfil
+PERF_GB_PERMISOS;Permissões e Famílias Disponíveis
+PERF_GB_ARBOL;Árvore de Hierarquia de Permissões
+PERF_LBL_NOMBRE;Nome:
+PERF_LBL_ROL_FAMILIA;Função / Família:
+PERF_RB_ROL;Função
+PERF_RB_FAMILIA;Família
+PERF_BTN_CREAR;Criar
+PERF_BTN_ELIMINAR;Excluir
+PERF_MSG_SELECCION;Você deve selecionar permissões ou famílias
+IDI_TITULO;Gestão de Idiomas
+IDI_GB_NUEVO;Novo Idioma
+IDI_LBL_CODIGO;Código
+IDI_LBL_BASE;Ao criar um idioma, as traduções do idioma base (Espanhol) são copiadas como ponto de partida.
+IDI_BTN_CREAR;Criar Idioma
+IDI_GB_TRADUCCIONES;Traduções
+IDI_LBL_IDIOMA;Idioma:
+IDI_COL_CLAVE;Chave
+IDI_COL_TEXTO;Texto
+IDI_MSG_CREADO;O idioma -- {0} -- foi criado com sucesso
+IDI_MSG_GUARDADO;Traduções salvas com sucesso
+IDI_ERR_DATOS;Você deve informar o código e o nome do idioma
+IDI_ERR_LONGITUD;O código permite até 5 caracteres e o nome até 50
+IDI_ERR_CODIGO_EXISTE;Já existe um idioma com esse código
+IDI_LBL_ARCHIVO;Arquivo de traduções (opcional)
+IDI_BTN_EXAMINAR;Procurar...
+IDI_MSG_IMPORTADAS;O idioma -- {0} -- foi criado com {1} traduções importadas
+IDI_ERR_ARCHIVO;Não foi possível ler o arquivo de traduções: 

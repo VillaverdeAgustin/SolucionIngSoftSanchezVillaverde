@@ -101,5 +101,13 @@ INSERT INTO Traduccion (IdIdioma, Clave, Texto) VALUES
 (@ES, N'IDI_ERR_LONGITUD',      N'El código admite hasta 5 caracteres y el nombre hasta 50'),
 (@EN, N'IDI_ERR_LONGITUD',      N'The code allows up to 5 characters and the name up to 50'),
 (@ES, N'IDI_ERR_CODIGO_EXISTE', N'Ya existe un idioma con ese código'),
-(@EN, N'IDI_ERR_CODIGO_EXISTE', N'A language with that code already exists');
+(@EN, N'IDI_ERR_CODIGO_EXISTE', N'A language with that code already exists'),
+(@ES, N'IDI_LBL_ARCHIVO',       N'Archivo de traducciones (opcional)'),
+(@EN, N'IDI_LBL_ARCHIVO',       N'Translations file (optional)'),
+(@ES, N'IDI_BTN_EXAMINAR',      N'Examinar...'),
+(@EN, N'IDI_BTN_EXAMINAR',      N'Browse...'),
+(@ES, N'IDI_MSG_IMPORTADAS',    N'El idioma -- {0} -- fue creado con {1} traducciones importadas'),
+(@EN, N'IDI_MSG_IMPORTADAS',    N'Language -- {0} -- was created with {1} imported translations'),
+(@ES, N'IDI_ERR_ARCHIVO',       N'No se pudo leer el archivo de traducciones: '),
+(@EN, N'IDI_ERR_ARCHIVO',       N'The translations file could not be read: ');
 GO

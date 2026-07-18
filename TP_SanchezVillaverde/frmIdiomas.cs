@@ -40,6 +40,8 @@ namespace TP_SanchezVillaverde
             lblCodigo.Text = gestorIdioma.Traducir("IDI_LBL_CODIGO");
             lblNombre.Text = gestorIdioma.Traducir("COMUN_NOMBRE");
             lblBase.Text = gestorIdioma.Traducir("IDI_LBL_BASE");
+            lblArchivo.Text = gestorIdioma.Traducir("IDI_LBL_ARCHIVO");
+            btnExaminar.Text = gestorIdioma.Traducir("IDI_BTN_EXAMINAR");
             btnCrear.Text = gestorIdioma.Traducir("IDI_BTN_CREAR");
             gbTraducciones.Text = gestorIdioma.Traducir("IDI_GB_TRADUCCIONES");
             lblIdioma.Text = gestorIdioma.Traducir("IDI_LBL_IDIOMA");
@@ -93,25 +95,55 @@ namespace TP_SanchezVillaverde
             TraducirColumnas();
         }
 
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialogo = new OpenFileDialog())
+            {
+                dialogo.Filter = "Archivos de traducciones (*.csv;*.txt)|*.csv;*.txt|Todos los archivos (*.*)|*.*";
+                if (dialogo.ShowDialog() == DialogResult.OK)
+                {
+                    txtArchivo.Text = dialogo.FileName;
+                }
+            }
+        }
+
         private void btnCrear_Click(object sender, EventArgs e)
         {
             try
             {
                 string nombre = txtNombre.Text.Trim();
-                gestorIdioma.AgregarIdioma(txtCodigo.Text, nombre);
+                string codigo = txtCodigo.Text.Trim().ToUpper();
+                string rutaArchivo = txtArchivo.Text.Trim() == "" ? null : txtArchivo.Text.Trim();
+
+                int importadas = gestorIdioma.AgregarIdioma(codigo, nombre, rutaArchivo);
                 bitacora.RegistrarBitacora(SessionManager.GetInstance.UsuarioActual().user,
                     TipoAccion.AltaIdioma.ToString() + " " + nombre);
 
-                MessageBox.Show(string.Format(gestorIdioma.Traducir("IDI_MSG_CREADO"), nombre));
-                string codigo = txtCodigo.Text.Trim().ToUpper();
+                if (importadas > 0)
+                {
+                    MessageBox.Show(string.Format(gestorIdioma.Traducir("IDI_MSG_IMPORTADAS"), nombre, importadas));
+                }
+                else
+                {
+                    MessageBox.Show(string.Format(gestorIdioma.Traducir("IDI_MSG_CREADO"), nombre));
+                }
                 txtCodigo.Clear();
                 txtNombre.Clear();
+                txtArchivo.Clear();
                 CargarIdiomas();
                 SeleccionarIdioma(codigo);
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(gestorIdioma.Traducir("IDI_ERR_ARCHIVO") + ex.Message);
+            }
+            catch (System.IO.IOException ex)
+            {
+                MessageBox.Show(gestorIdioma.Traducir("IDI_ERR_ARCHIVO") + ex.Message);
             }
             catch (Exception ex)
             {

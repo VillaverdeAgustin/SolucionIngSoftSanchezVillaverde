@@ -157,5 +157,9 @@ INSERT INTO Traduccion (IdIdioma, Clave, Texto) VALUES
 (@PT, N'IDI_MSG_GUARDADO',              N'Traduções salvas com sucesso'),
 (@PT, N'IDI_ERR_DATOS',                 N'Você deve informar o código e o nome do idioma'),
 (@PT, N'IDI_ERR_LONGITUD',              N'O código permite até 5 caracteres e o nome até 50'),
-(@PT, N'IDI_ERR_CODIGO_EXISTE',         N'Já existe um idioma com esse código');
+(@PT, N'IDI_ERR_CODIGO_EXISTE',         N'Já existe um idioma com esse código'),
+(@PT, N'IDI_LBL_ARCHIVO',               N'Arquivo de traduções (opcional)'),
+(@PT, N'IDI_BTN_EXAMINAR',              N'Procurar...'),
+(@PT, N'IDI_MSG_IMPORTADAS',            N'O idioma -- {0} -- foi criado com {1} traduções importadas'),
+(@PT, N'IDI_ERR_ARCHIVO',               N'Não foi possível ler o arquivo de traduções: ');
 GO

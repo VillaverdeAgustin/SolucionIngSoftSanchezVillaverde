@@ -30,6 +30,9 @@
         {
             this.gbNuevo = new System.Windows.Forms.GroupBox();
             this.btnCrear = new System.Windows.Forms.Button();
+            this.lblArchivo = new System.Windows.Forms.Label();
+            this.txtArchivo = new System.Windows.Forms.TextBox();
+            this.btnExaminar = new System.Windows.Forms.Button();
             this.lblBase = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -49,6 +52,9 @@
             // gbNuevo
             //
             this.gbNuevo.Controls.Add(this.btnCrear);
+            this.gbNuevo.Controls.Add(this.lblArchivo);
+            this.gbNuevo.Controls.Add(this.txtArchivo);
+            this.gbNuevo.Controls.Add(this.btnExaminar);
             this.gbNuevo.Controls.Add(this.lblBase);
             this.gbNuevo.Controls.Add(this.txtNombre);
             this.gbNuevo.Controls.Add(this.lblNombre);
@@ -56,7 +62,7 @@
             this.gbNuevo.Controls.Add(this.lblCodigo);
             this.gbNuevo.Location = new System.Drawing.Point(12, 12);
             this.gbNuevo.Name = "gbNuevo";
-            this.gbNuevo.Size = new System.Drawing.Size(380, 220);
+            this.gbNuevo.Size = new System.Drawing.Size(380, 290);
             this.gbNuevo.TabIndex = 0;
             this.gbNuevo.TabStop = false;
             this.gbNuevo.Text = "Nuevo Idioma";
@@ -96,20 +102,46 @@
             this.txtNombre.Size = new System.Drawing.Size(230, 23);
             this.txtNombre.TabIndex = 3;
             //
+            // lblArchivo
+            //
+            this.lblArchivo.Location = new System.Drawing.Point(16, 112);
+            this.lblArchivo.Name = "lblArchivo";
+            this.lblArchivo.Size = new System.Drawing.Size(348, 18);
+            this.lblArchivo.TabIndex = 4;
+            this.lblArchivo.Text = "Archivo de traducciones (opcional)";
+            //
+            // txtArchivo
+            //
+            this.txtArchivo.Location = new System.Drawing.Point(16, 133);
+            this.txtArchivo.Name = "txtArchivo";
+            this.txtArchivo.ReadOnly = true;
+            this.txtArchivo.Size = new System.Drawing.Size(252, 23);
+            this.txtArchivo.TabIndex = 5;
+            //
+            // btnExaminar
+            //
+            this.btnExaminar.Location = new System.Drawing.Point(274, 132);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(90, 25);
+            this.btnExaminar.TabIndex = 6;
+            this.btnExaminar.Text = "Examinar...";
+            this.btnExaminar.UseVisualStyleBackColor = true;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            //
             // lblBase
             //
-            this.lblBase.Location = new System.Drawing.Point(16, 110);
+            this.lblBase.Location = new System.Drawing.Point(16, 168);
             this.lblBase.Name = "lblBase";
-            this.lblBase.Size = new System.Drawing.Size(348, 50);
-            this.lblBase.TabIndex = 4;
+            this.lblBase.Size = new System.Drawing.Size(348, 60);
+            this.lblBase.TabIndex = 7;
             this.lblBase.Text = "Al crear un idioma se copian las traducciones del idioma base (Español) como punto de partida.";
             //
             // btnCrear
             //
-            this.btnCrear.Location = new System.Drawing.Point(120, 170);
+            this.btnCrear.Location = new System.Drawing.Point(120, 240);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(130, 30);
-            this.btnCrear.TabIndex = 5;
+            this.btnCrear.TabIndex = 8;
             this.btnCrear.Text = "Crear Idioma";
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -205,6 +237,9 @@
 
         private System.Windows.Forms.GroupBox gbNuevo;
         private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.Label lblArchivo;
+        private System.Windows.Forms.TextBox txtArchivo;
+        private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.Label lblBase;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
