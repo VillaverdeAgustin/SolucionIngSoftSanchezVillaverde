@@ -62,6 +62,20 @@ namespace TP_SanchezVillaverde
             cmbIdioma.DataSource = gestorIdioma.ObtenerIdiomas();
         }
 
+        private void SeleccionarIdioma(string codigo)
+        {
+            //Deja seleccionado en el combo el idioma recien creado,
+            //listo para editar sus traducciones en la grilla
+            foreach (IdiomaBE idioma in (List<IdiomaBE>)cmbIdioma.DataSource)
+            {
+                if (idioma.Codigo == codigo)
+                {
+                    cmbIdioma.SelectedItem = idioma;
+                    break;
+                }
+            }
+        }
+
         private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarTraducciones();
@@ -89,9 +103,11 @@ namespace TP_SanchezVillaverde
                     TipoAccion.AltaIdioma.ToString() + " " + nombre);
 
                 MessageBox.Show(string.Format(gestorIdioma.Traducir("IDI_MSG_CREADO"), nombre));
+                string codigo = txtCodigo.Text.Trim().ToUpper();
                 txtCodigo.Clear();
                 txtNombre.Clear();
                 CargarIdiomas();
+                SeleccionarIdioma(codigo);
             }
             catch (ArgumentException ex)
             {
@@ -110,7 +126,12 @@ namespace TP_SanchezVillaverde
 
             try
             {
+                //Confirma la edicion pendiente de celda Y de fila antes de leer
+                //los RowState, sino la fila en edicion no figura como Modified
                 dgvTraducciones.EndEdit();
+                this.Validate();
+                this.BindingContext[traducciones].EndCurrentEdit();
+
                 Dictionary<string, string> cambios = new Dictionary<string, string>();
                 foreach (DataRow fila in traducciones.Rows)
                 {
